@@ -1,0 +1,107 @@
+<section
+  fxLayout="column"
+  fxFlex
+  fxLayoutAlign="center center"
+  fxLayoutGap="40px"
+  class="page"
+>
+  <div
+    class="register raised-container"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <div class="register__dashed-square"></div>
+    <div class="register__solid-square"></div>
+    <h1 class="page-title">{{ "auth.register.title" | translate }}</h1>
+
+    <form
+      class="register__form"
+      fxLayout="column"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">{{
+          "auth.register.name" | translate
+        }}</mat-label>
+        <input matInput type="text" id="name" formControlName="name" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">{{
+          "auth.register.phoneNumber" | translate
+        }}</mat-label>
+        <ngx-mat-intl-tel-input
+          [preferredCountries]="['us', 'es', 'cu']"
+          [enablePlaceholder]="true"
+          [enableSearch]="true"
+          name="phone"
+          formControlName="phone"
+        ></ngx-mat-intl-tel-input>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">{{
+          "auth.register.email" | translate
+        }}</mat-label>
+        <input
+          matInput
+          type="email"
+          id="email"
+          formControlName="email"
+          required
+          placeholder="ej: user@gmail.com"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">{{
+          "auth.register.password" | translate
+        }}</mat-label>
+        <input
+          matInput
+          type="password"
+          id="password"
+          formControlName="password1"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">{{
+          "auth.register.repeat-password" | translate
+        }}</mat-label>
+        <input
+          matInput
+          type="password"
+          id="repeat_spassword"
+          formControlName="password2"
+          required
+        />
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button
+          type="submit"
+          class="btn-primary"
+          [disabled]="registerForm.invalid"
+        >
+          <span>{{ "auth.register.register" | translate }}</span>
+          <span class="iconify" data-icon="iconoir:arrow-right"> </span>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="legal-terms-box">
+    <p>
+      {{ "auth.register.acceptLegalTerms" | translate }}
+      <a target="_blank" rel="noopener" routerLink="/terms-and-conditions">{{
+        "termsAndConditions" | translate
+      }}</a>
+      {{ "auth.acceptLegalTerms.and" | translate }}
+      <a target="_blank" rel="noopener" routerLink="/privacy-policy">{{
+        "privacyPolicy" | translate
+      }}</a>
+    </p>
+  </div>
+</section>

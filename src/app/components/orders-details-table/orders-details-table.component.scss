@@ -1,0 +1,107 @@
+@use "breakpoints" as breakpoints;
+@use "colors" as colors;
+
+.billings {
+  margin-bottom: 30px;
+  span {
+    font-size: clamp(0.2rem, 3vw, 0.938rem);
+  }
+  &__distribution {
+    display: flex;
+    align-items: center;
+    svg {
+      color: colors.$primary_color;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+}
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+
+  thead {
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  }
+  th {
+    font-weight: 400;
+    font-size: clamp(0.2rem, 3vw, 0.938rem);
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+  }
+  tr {
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+  }
+
+  thead th:nth-child(1) {
+    width: 10%;
+  }
+
+  thead th:nth-child(2) {
+    text-align: left;
+    width: 45%;
+  }
+
+  thead th:nth-child(3) {
+    text-align: left;
+    width: 20%;
+  }
+
+  thead th:nth-child(4) {
+    text-align: left;
+    width: 20%;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+  }
+  .provider-title {
+    text-align: left;
+  }
+  .product {
+    img {
+      width: 45px;
+      height: 45px;
+    }
+    &__name {
+      font-weight: 500;
+      font-size: clamp(0.625rem, 2.5vw, 0.8rem);
+      line-height: 15px;
+      color: #000437;
+      margin-bottom: 5px;
+    }
+    &__price {
+      font-weight: 500;
+      font-size: clamp(0.325rem, 2.5vw, 0.6rem);
+      line-height: 9px;
+    }
+  }
+  .quantity,
+  .price {
+    text-align: center;
+    font-weight: 500;
+    font-size: clamp(0.625rem, 2.5vw, 0.8rem);
+  }
+}
+
+@include breakpoints.media-breakpoint("lt-md") {
+  thead th:nth-child(1) {
+    width: 15%;
+  }
+
+  thead th:nth-child(2) {
+    width: 39%;
+  }
+
+  thead th:nth-child(3) {
+    width: 30%;
+  }
+
+  thead th:nth-child(4) {
+    width: 30%;
+  }
+}

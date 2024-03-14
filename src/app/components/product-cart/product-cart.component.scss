@@ -1,0 +1,89 @@
+@use "colors" as colors;
+@use "utilities" with (
+  $webkit-line-clamp: 2
+);
+@use "breakpoints" as breakpoints;
+
+:host {
+  .mat-mini-fab {
+    box-shadow: none;
+    width: 30px;
+    height: 30px;
+    background-color: #e14603;
+  }
+  ::ng-deep .mat-button-wrapper {
+    padding: 0;
+    font-size: 16px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.product {
+  padding: 0 30px;
+  &__img {
+    width: 109px;
+    height: 107px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  &__name {
+    font-size: 9px;
+    font-weight: 500;
+    color: colors.$secondary-color;
+    margin-bottom: 6px;
+    line-height: 15px;
+  }
+  &__provider {
+    font-size: 8px;
+    margin-bottom: 0;
+    line-height: 15px;
+  }
+  &__price {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  &__actions {
+    padding: 6px 10px;
+    width: 70px;
+    height: 32px;
+    border-radius: 16.5px;
+    overflow: hidden;
+    background: #0000000d;
+    color: #434343;
+    span {
+      font-size: 16px;
+      min-width: 20px;
+      text-align: center;
+    }
+    button {
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+    .mat-button {
+      color: #434343;
+    }
+  }
+}
+@include breakpoints.media-breakpoint("lt-sm") {
+  .product {
+    padding: 0 10px;
+  }
+}

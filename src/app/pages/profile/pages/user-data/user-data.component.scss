@@ -1,0 +1,11 @@
+.user-form {
+  &__actions {
+    margin-top: 20px;
+    .btn-secondary {
+      color: #434343;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

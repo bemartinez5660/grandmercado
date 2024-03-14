@@ -1,0 +1,25 @@
+@use "colors" as colors;
+@use "breakpoints" as breakpoints;
+
+.checkout-links {
+  margin-bottom: 40px;
+  &__item {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(0.625rem, 3vw, 1rem);
+    line-height: clamp(0.938rem, 6vw, 1.5rem);
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 13px;
+      @include breakpoints.media-breakpoint("lt-sm") {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.active-route {
+  color: colors.$primary-color;
+}

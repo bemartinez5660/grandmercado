@@ -1,0 +1,53 @@
+@use "breakpoints" as breakpoints;
+
+.head-banner {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  &__content {
+    position: absolute;
+    left: 5rem;
+    max-width: 558px;
+  }
+  picture {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+  .banner-link {
+    text-decoration: none;
+    //CSS trick for transform only the first letter
+    button {
+      display: inline-block;
+    }
+    button:first-letter {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.home-department-slides {
+  margin-bottom: 30px;
+}
+
+@include breakpoints.media-breakpoint("lt-md") {
+  .head-banner {
+    &__content {
+      max-width: 400px;
+      left: 1rem;
+    }
+  }
+}
+
+@include breakpoints.media-breakpoint("xs") {
+  .head-banner {
+    &__content {
+      left: 0;
+      bottom: 0;
+      padding: 20px;
+    }
+  }
+}

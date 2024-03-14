@@ -1,0 +1,62 @@
+<div class="cart cart-container">
+  <ng-container *ngIf="cart$ | async as cart">
+    <h1 class="shop-banner-title">{{ "shop.cart.productList" | translate }}</h1>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutGap="40px"
+      class="cart__top-bar"
+    >
+      <button class="btn-primary" [routerLink]="['/checkout']">
+        <span>
+          {{ "shop.cart.actions.pay" | translate }}
+        </span>
+        <span class="iconify" data-icon="fluent:payment-16-regular"></span>
+      </button>
+
+      <strong class="cart__title"
+        >{{ "shop.cart.subtotal" | translate }}:</strong
+      >
+      <span class="cart__value">{{ cart.sell_total | currency }}</span>
+    </div>
+    <ng-container *ngFor="let item of cart.items">
+      <app-product-cart
+        [cartItem]="item"
+        [cartProvince]="cart.province"
+      ></app-product-cart>
+    </ng-container>
+
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center end"
+      fxLayoutGap="30px"
+      class="cart__bottom-bar"
+    >
+      <div fxLayout="row" fxLayoutGap="10px">
+        <span class="cart__title">{{ "shop.cart.total" | translate }}:</span>
+        <span class="cart__value">{{ cart.sell_price | currency }}</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <span class="cart__title"
+          ><span class="iconify" data-icon="iconoir:delivery-truck"></span
+          >{{ "shop.cart.shipping" | translate }}:</span
+        >
+        <span class="cart-details__value">{{
+          cart.sell_distribution | currency
+        }}</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <strong class="cart__title"
+          >{{ "shop.cart.subtotal" | translate }}:</strong
+        >
+        <span class="cart__value">{{ cart.sell_total | currency }}</span>
+      </div>
+      <button class="btn-primary" [routerLink]="['/checkout']">
+        <span>
+          {{ "shop.cart.actions.pay" | translate }}
+        </span>
+        <span class="iconify" data-icon="fluent:payment-16-regular"></span>
+      </button>
+    </div>
+  </ng-container>
+</div>

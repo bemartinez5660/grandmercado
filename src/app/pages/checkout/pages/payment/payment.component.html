@@ -1,0 +1,20 @@
+<div class="payment-box">
+  <h1 class="page-title">
+    {{ "shop.checkout.payment.title" | translate }}
+  </h1>
+  <ng-container *ngIf="order$ | async as order">
+    <app-orders-details-table [data]="order"></app-orders-details-table>
+    <div class="payment" fxLayout="column" fxLayoutGap="20px">
+      <mat-accordion class="example-headers-align">
+        <ng-container *ngIf="paymentMethods$ | async as paymentMethods">
+          <ng-container *ngFor="let item of paymentMethods">
+            <app-payment-method
+              [payment]="item"
+              [order]="order"
+            ></app-payment-method>
+          </ng-container>
+        </ng-container>
+      </mat-accordion>
+    </div>
+  </ng-container>
+</div>

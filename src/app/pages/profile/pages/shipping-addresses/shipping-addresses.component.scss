@@ -1,0 +1,22 @@
+.add-receiver-box {
+  padding: 60px;
+  &__title {
+    padding-bottom: 30px;
+  }
+}
+
+th {
+  text-align: left;
+}
+td {
+  padding: 10px 0;
+}
+.action {
+  text-align: center;
+  svg {
+    font-size: 25px;
+  }
+}
+thead th:nth-child(1) {
+  width: 40%;
+}

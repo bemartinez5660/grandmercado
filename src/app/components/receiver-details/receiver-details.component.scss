@@ -1,0 +1,12 @@
+.receiver {
+  color: #00000099;
+  margin-bottom: 20px;
+  &__title {
+    color: #000000cc;
+    font-weight: 400;
+  }
+  &__details {
+    margin-top: 5px;
+    font-size: clamp(0.625rem, 2.5vw, 0.8rem);
+  }
+}

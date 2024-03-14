@@ -1,0 +1,53 @@
+<div
+  class="product"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  fxLayoutGap="5px"
+>
+  <div fxLayout="row" fxLayoutGap="5px">
+    <div class="product__img">
+      <img [src]="cartItem.product.image" />
+    </div>
+    <div
+      class="product__details"
+      fxLayout="column"
+      fxLayoutAlign="space-between"
+    >
+      <div fxLayout="column">
+        <p class="product__name line-clamp">{{ cartItem.product.name }}</p>
+        <p class="product__provider">{{ cartItem.product.provider?.name }}</p>
+        <span class="product__price">{{
+          cartItem.product.sell_price | currency
+        }}</span>
+      </div>
+      <div
+        class="product__actions"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <button
+          mat-icon-button
+          (click)="decrementItemQunatity(); $event.stopPropagation()"
+          [disabled]="cartItem.quantity == 1"
+        >
+          <img src="assets/img/icons/black-chevron-left.svg" />
+        </button>
+        <span>{{ cartItem.quantity }}</span>
+        <button
+          mat-icon-button
+          (click)="incrementItemQuantity(); $event.stopPropagation()"
+        >
+          <img src="assets/img/icons/black-chevron-right.svg" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button
+    mat-mini-fab
+    color="warn"
+    (click)="onRemoveCartItem(cartItem); $event.stopPropagation()"
+  >
+    <span class="iconify" data-icon="akar-icons:trash-can"></span>
+  </button>
+</div>

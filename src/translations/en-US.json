@@ -1,0 +1,155 @@
+{
+  "auth": {
+    "login": {
+      "createAccount": "Sing in",
+      "description": "Your international locker service",
+      "dontHaveAccount": "You don't have an acount yet?",
+      "keepMeLogged": "Keep me logged",
+      "title": "Log in",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "I forgot my password",
+      "welcome": "Welcome"
+    },
+    "register": {
+      "alreadyHaveAccount": "Do you already have an account?",
+      "loginHere": "Log in here",
+      "title": "Sign up",
+      "firstName": "Name",
+      "lastName": "Last name",
+      "personalId": "ID card",
+      "email": "Email",
+      "password": "Password",
+      "country": "Country",
+      "phoneNumber": "Phone number",
+      "address": "Address",
+      "state": "State",
+      "city": "City",
+      "zipCode": "Zip code",
+      "register": "Sign in"
+    },
+    "forgot": {
+      "forgot": "Recover password",
+      "info": "Enter your email bellow to retrieve your account or Login",
+      "send": "Send",
+      "submitted": "A link to reset your password has been sent to your email address."
+    },
+    "changePass": {
+      "title": "Change password",
+      "info": "Enter your new password below",
+      "send": "Send",
+      "submitted": "Your password has been changed.",
+      "notEquals": "Passwords do not match"
+    },
+    "reset-password": {
+      "title": "Reset your password",
+      "description": "Strong passwords include numbers, letters, and punctuation marks.",
+      "password": "Enter new password",
+      "confirm": "Confirm new password"
+    }
+  },
+
+  "home": {
+    "title": "Send to Cuba",
+    "subtitle": "from anywhere in the world.",
+    "description": "Buy on Amazon, Shein, Ebay or any virtual store from Cuba",
+    "howTo": "How to send",
+    "startNow": "Start now"
+  },
+
+  "locker": {
+    "createFirst": "Start creating a new locker",
+    "card": {
+      "for": "For: "
+    }
+  },
+
+  "nav": {
+    "login": "Log in",
+    "signup": "Sing in",
+    "logout": "Log out",
+    "locker": "Locker",
+    "home": "Home",
+    "shop": "Shop",
+    "profile": "My Profile"
+  },
+
+  "notifications": {
+    "authentication": {
+      "loginBadCredentials": "Wrong Username or Password",
+      "loginSuccess": "Login successful",
+      "logoutError": "You must be logged in before you can log out",
+      "logoutSuccess": "Logged out successfully",
+      "signUpBadCredentials": "Invalid email",
+      "error": "An unexpected error occurred"
+    }
+  },
+
+  "shop": {
+    "navbar": {
+      "select": "Products available in:"
+    },
+    "head-banner": {
+      "title": "We offer you a selection of top quality fruits.",
+      "subtitle": "Add Vima fruits to your basket and enjoy a delicious healthy meal with your family."
+    },
+    "cart": {
+      "productList": "Products in the cart",
+      "total": "Total",
+      "actions": {
+        "pay": "Pay",
+        "goToCart": "Go to cart"
+      }
+    },
+    "footer": {
+      "help": "Do you need help?",
+      "shop": "Shop",
+      "customer": "Customer",
+      "links": "You may like"
+    },
+    "checkout": {
+      "receiver": {
+        "title": "Add recipient",
+        "name": "Name and Last Name",
+        "ci": "ID card",
+        "email": "Email (Optional)",
+        "phone": "Phone",
+        "address": "Address",
+        "mostAddReceiver": "You must add a recipient"
+      }
+    },
+    "products": {
+      "provider": "Provider",
+      "details": "Product details",
+      "addToCart": "Add to cart",
+      "notFound": "No product found for specified criteria",
+      "deliveryTime": "Estimated delivery time"
+    },
+    "search": "Search...",
+    "more_products": "More products",
+    "all.products": "All products"
+  },
+  "deliveryTime": {
+    "notAvailable": "Not available",
+    "in24Hours": "Less than 24 hours",
+    "inDays": "{{time}} days"
+  },
+
+  "all": "All",
+  "seeMore": "See more",
+  "APP_NAME": "dashcore",
+  "About": "About",
+  "Hello world !": "Hello world !",
+  "Home": "Home",
+  "Logged in as": "Logged in as",
+  "Login": "Log in",
+  "Logout": "Log out",
+  "Password": "Password",
+  "Password is required": "Password is required",
+  "Username": "Username",
+  "Username is required": "Username is required",
+  "Username or password incorrect.": "Wrong Username or Password",
+  "Remember me": "Remember me",
+  "Version": "Version",
+  "deliveryPolicy": "Delivery Policy"
+}

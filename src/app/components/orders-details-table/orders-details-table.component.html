@@ -1,0 +1,81 @@
+<ng-container *ngIf="orderDetails">
+  <table>
+    <thead>
+      <tr>
+        <th fxHide.lt-sm scope="col">
+          <span class="iconify" data-icon="uil:image-v"></span>
+        </th>
+        <th scope="col">{{ "shop.order.product" | translate }}</th>
+        <th scope="col">{{ "shop.order.quantity" | translate }}</th>
+        <th scope="col">{{ "shop.order.price" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="orderDetails?.items; else isShopOrderType">
+        <ng-container *ngFor="let provider of Object.keys(orderDetails.items)">
+          <tr>
+            <th colspan="4" class="provider-title">
+              <span
+                >{{ "shop.order.provider.table.head" | translate }}
+                <strong>{{
+                  getSelectedProviderName(provider) | async
+                }}</strong></span
+              >
+            </th>
+          </tr>
+          <tr *ngFor="let item of orderDetails?.items[provider]">
+            <th fxHide.lt-sm scope="row"><img [src]="item.product.image" /></th>
+            <td class="product">
+              <div fxLayout="column">
+                <img fxShow.lt-sm fxHide [src]="item.product.image" />
+                <span class="product__name">{{ item.product.name }}</span>
+                <span class="product__price" fxHide.lt-sm>{{
+                  item.product.sell_price | currency
+                }}</span>
+              </div>
+            </td>
+            <td class="quantity">{{ item.quantity }}</td>
+            <td class="price">
+              {{ item.product.sell_price * item.quantity | currency }}
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+      <ng-template #isShopOrderType>
+        <tr *ngFor="let item of orderDetails.orders[0].items">
+          <th fxHide.lt-sm scope="row"><img [src]="item.product.image" /></th>
+          <td class="product">
+            <div fxLayout="column">
+              <img fxShow.lt-sm fxHide [src]="item.product.image" />
+              <span class="product__name">{{ item.product.name }}</span>
+              <span class="product__price" fxHide.lt-sm>{{
+                item.product.sell_price | currency
+              }}</span>
+            </div>
+          </td>
+          <td class="quantity">{{ item.quantity }}</td>
+          <td class="price">
+            {{ item.product.sell_price * item.quantity | currency }}
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+  <div
+    fxLayout="row"
+    fxLayoutGap="25px"
+    fxLayout.lt-sm="column"
+    fxLayoutGap.lt-sm="10px"
+    class="billings"
+  >
+    <span>Total: {{ orderDetails.sell_price | currency }}</span>
+    <span class="billings__distribution">
+      <span class="iconify" data-icon="iconoir:delivery-truck"></span>
+      <span>Envio: {{ orderDetails.sell_distribution | currency }}</span>
+    </span>
+    <span
+      ><strong>Subtotal:</strong> {{ orderDetails.sell_total | currency }}</span
+    >
+  </div>
+  <app-receiver-details [showDefaultReceiver]="true"></app-receiver-details>
+</ng-container>

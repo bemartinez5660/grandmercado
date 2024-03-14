@@ -1,0 +1,48 @@
+<ng-container *ngIf="shippingAddressees.length">
+  <div class="page-box" fxLayout="column" fxLayoutAlign="center center">
+    <h1 class="page-title">
+      {{ "profile.myShippingAddressees.title" | translate }}
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">
+            {{ "profile.myShippingAddressees.name" | translate }}
+          </th>
+          <th scope="col">
+            {{ "profile.myShippingAddressees.address" | translate }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of shippingAddressees">
+          <tr (click)="item.isExpanded = !item.isExpanded">
+            <td>{{ item.name }}</td>
+            <td>{{ item.address }}</td>
+            <td class="action">
+              <div (click)="onDeleteShippingAddressee(item)">
+                <span
+                  class="iconify"
+                  data-icon="fluent:delete-12-regular"
+                ></span>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="item.isExpanded" @detailExpand>
+            <td colspan="2">
+              <app-receiver-details [receiver]="item"></app-receiver-details>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
+<div class="add-receiver-box">
+  <div class="add-receiver-box__title">
+    <span>Adicionar destinatario</span>
+  </div>
+  <app-receiver-form
+    (receiverAdded)="onAddedReceiver($event)"
+  ></app-receiver-form>
+</div>

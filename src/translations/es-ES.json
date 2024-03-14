@@ -1,0 +1,312 @@
+{
+  "auth": {
+    "login": {
+      "signIn": "Iniciar sesión",
+      "register": "Registrarse",
+      "createAccount": "Registrate aquí",
+      "description": "Su servicio de casillero internacional",
+      "dontHaveAccount": "¿Todavía no te has registrado?",
+      "keepMeLogged": "Manténme conectado",
+      "title": "Bienvenido",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "forgotPassword": "Olvidé mi contraseña",
+      "welcome": "Bienvenido",
+      "acceptLegalTerms": "Al iniciar sesión usted reconoce haber leído y aceptado nuestros "
+    },
+    "register": {
+      "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+      "loginHere": "Inicia sesión aquí",
+      "title": "Regístrate",
+      "name": "Nombre y Apellido(s)",
+      "lastName": "Apellido",
+      "personalId": "CI",
+      "username": "Nombre de usuario",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "repeat-password": "Repetir Contraseña",
+      "country": "País",
+      "phoneNumber": "Teléfono",
+      "address": "Dirección",
+      "state": "Estado/Provincia",
+      "city": "Ciudad",
+      "zipCode": "Código Postal",
+      "register": "Registrar",
+      "acceptLegalTerms": "Al registrarse usted reconoce haber leído y aceptado nuestros "
+    },
+    "forgot": {
+      "forgot": "Recuperar contraseña",
+      "info": "Ingrese su correo electrónico a continuación para recuperar su cuenta o",
+      "send": "Enviar",
+      "submitted": "Se ha envíado un enlace a su correo electrónico para restablecer su contraseña."
+    },
+    "changePass": {
+      "title": "Cambiar contraseña",
+      "info": "Ingrese su nueva contraseña a continuación",
+      "send": "Enviar",
+      "submitted": "Se ha cambiado su contraseña.",
+      "notEquals": "Las contraseñas no coinciden"
+    },
+    "reset-password": {
+      "title": "Restablezca su contraseña",
+      "description": "Las contraseñas seguras incluyen números, letras y signos de puntuación.",
+      "password": "Ingrese nueva contraseña",
+      "confirm": "Confirme nueva contraseña"
+    },
+    "verifyEmail": "Se ha enviado un enlace a su correo electrónico . Por favor, sigua el enlace para verificar su cuenta.",
+    "whenVerifiedLogin": "Cuando se verifique su cuenta, podrá iniciar sesión.",
+    "acceptLegalTerms.and": " y "
+  },
+
+  "nav": {
+    "login": "Iniciar sesión",
+    "signup": "Regístrate",
+    "logout": "Cerrar sesión",
+    "locker": "Casillero",
+    "home": "Inicio",
+    "shop": "Tienda",
+    "profile": "Mi Perfil"
+  },
+
+  "notifications": {
+    "authentication": {
+      "loginBadCredentials": "Usuario o contraseña incorrecto",
+      "loginSuccess": "Inicio de sesión satisfactorio",
+      "logoutError": "Usted debe haber iniciado sesión antes de poder cerrarla. Error al cerrar sesión",
+      "logoutSuccess": "Se ha cerrado sesión exitosamente",
+      "signUpBadCredentials": "Email no válido",
+      "error": "Ocurrio un error inesperado"
+    }
+  },
+
+  "order": {
+    "created_at": "Fecha de creación",
+    "updated_at": "Última actualización",
+    "order": "Órden",
+    "orders": "Órdenes",
+    "status": "Estado",
+    "orderCode": "Número de orden",
+    "cancel": "Cancelar orden",
+    "weight": "Peso",
+    "totalMiscellanyWeight": "Peso total de miscelánea",
+    "totalHeavyWeight": "Peso total de duradero",
+    "totalMiscellanyPrice": "Precio por miscelánea",
+    "totalHeavyPrice": "Precio por artículos duraderos",
+    "deliveryOption": "Método de envío",
+    "receiver": "Beneficiario",
+    "contactPhone": "Teléfono de contacto",
+    "shippingAddress": "Dirección de entrega",
+    "importTax": "Tarifa de importación",
+    "subtotal": "Subtotal",
+    "serviceFee": "Tarifa de servicio",
+    "processingFee": "Tarifa de procesamiento",
+    "total": "Total",
+    "pay": "Pagar",
+    "priceBreakdown": "Desglose de precio",
+    "locker": "Casillero",
+    "packages": "Paquetes",
+    "filter": "Filtrar",
+    "date": "Fecha",
+    "view": "Ver",
+    "status.title": "Su orden está"
+  },
+
+  "shop": {
+    "navbar": {
+      "select": "Productos disponibles en:"
+    },
+    "head-banner": {
+      "title": "Te ofrecemos una selección de frutas de primera calidad",
+      "subtitle": "Agrega las frutas Vima a tu cesta y disfruta en familia una deliciosa comida saludable.",
+      "button": "Más productos Vima"
+    },
+    "cart": {
+      "productList": "Productos en el carro",
+      "total": "Total",
+      "shipping": "Envio",
+      "subtotal": "Subtotal",
+      "actions": {
+        "pay": "Pagar",
+        "goToCart": "Ir a la cesta"
+      },
+      "add": {
+        "success": "Se ha añadido al carrito el producto"
+      }
+    },
+    "checkout": {
+      "receiver": {
+        "title": "Seleccionar destinatario",
+        "addTitle": "Añadir destinatario",
+        "name": "Nombre y Apellido",
+        "ci": "CI",
+        "ci.error": "El CI debe tener 11 dígitos",
+        "email": "Correo electrónico (Opcional)",
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "city": "Municipio / Localidad",
+        "add": "Añadir",
+        "back": "Átras",
+        "mostAddReceiver": "Debe añadir un destinatario"
+      },
+      "payment": {
+        "title": "Método de pago",
+        "creditCard": "Tarjeta de crédito",
+        "cardDescription": "Pague con Visa, Amex, MasterCard y muchas otras tarjetas de crédito y débito",
+        "cardNumber": "Número de tarjeta",
+        "cardOwner": "Nombre del titular",
+        "expirationDate": "Fecha de expiración",
+        "cvc": "CVC",
+        "emailOrPhone": "Correo electrónico/Teléfono",
+        "confirmCode": "Código de confirmación",
+        "paypal": "PayPal",
+        "paypalDescription": "Paga fácil, rápido y seguro con PayPal",
+        "zelle": "Zelle",
+        "phonePay": "Pago por teléfono",
+        "phonePayDescription": "Paga con una llamada",
+        "paymentCompletedTitle": " El pago fue realizado con éxito",
+        "paymentCompletedDescription": "Su orden ha sido creada, llegarán a su email los detalles de la compra. Le esperamos pronto.",
+        "zelleDescription": "Sólo disponible en los Estados Unidos",
+        "zelle.notes": "Debe envíar a la cuenta <b>{{email}}</b> la cantidad de <b>{{amount}} USD</b> . El asunto debe ser el código de la order <b>{{order_code}}</b>.",
+        "zelle.noteImportant": "Nota importante: Para evitar retenciones no ponga en la app de Zelle ningún mensaje que contenga \"Cuba\", \"cubanos\", \"para Cuba\", \"envio Cuba\" u otro término similar. Como alternativas, puede dejar el espacio del mensaje en blanco o llenarlo con su nombre y apellido.",
+        "zelle.note2": "El pago a través de Zelle <a href=\"https://www.zellepay.com/faq/can-i-use-zelle-internationally\" >está limitado a clientes en los Estados Unidos</a>.",
+        "zelle.confirmationNeeded": "Una vez hecho el pago entre el código de confirmación recibido",
+        "zelle.confirm": "Confirmar",
+        "zelle.confirmCode": "Código de confirmación",
+        "zelle.confirmation": "Su orden ha sido marcada como pagada, una vez que el pago sea confirmado su orden será enviada.<br/>Recibirá un correo electrónico con los detalles de su orden.<br/>Gracias por usar nuestros servicios",
+        "orderCompleted": "Orden completada",
+        "keepSearching": "Seguir buscando",
+        "goToHome": "Ir a inicio",
+        "phoneCall.text": "Para completar su orden, por favor contactenos al siguiente número <b>{{phone}}</b> y le brindaremos mejores instrucciones.",
+        "phoneCall.fee": "<bold>Tarifa de procesamiento: 3%</bold>",
+        "call": "Llamar",
+        "contact": "Contactar",
+        "link": "Link de pago",
+        "linkDescription": "Pague con tarjeta de crédito, debito, Google Pay o Apple Pay mediante Square",
+        "getLink": "Obtener link",
+        "linkTitle": "Visite el siguiente link para realizar el pago:",
+        "link.go": "Ir al link",
+        "link.tariff": "Tarifa de procesamieto:"
+      },
+      "receiverData": "Datos del destinatario",
+      "receiverNav": "Destinatario",
+      "orderNav": "Resumen de orden",
+      "paymentNav": "Pagar"
+    },
+    "footer": {
+      "help": "¿Necesitas Ayuda?",
+      "callTo": "Llama al:",
+      "email": "Correo electrónico:",
+      "address": "Dirección:",
+      "whatShouldKnow": "Qué debe saber",
+      "sellWithUs": "Vende con nosotros",
+      "shop": "Tienda",
+      "home": "Inicio",
+      "deliveryTimes": "Tiempos y tarifas de entrega",
+      "customer": "Cliente",
+      "signIn": "Registrarme",
+      "myCart": "Mi carro de compras",
+      "myOrders": "Mis órdenes",
+      "links": "Enlaces de Interés",
+      "foodCombos": "Combos de Alimentos"
+    },
+    "order": {
+      "title": "Factura",
+      "product": "Producto",
+      "quantity": "Cantidad",
+      "price": "Precio",
+      "name": "Nombre",
+      "ci": "CI",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "status": "Estado",
+      "province": "Provincia",
+      "city": "Municipio / Localidad",
+      "provider.table.head": "Productos de"
+    },
+    "products": {
+      "provider": "Proveedor",
+      "details": "Detalles del producto",
+      "addToCart": "Añadir a la cesta",
+      "notFound": "No se encontró ningún producto con las características especificadas",
+      "deliveryTime": "Tiempo estimado de entrega"
+    },
+    "search": "Buscar...",
+    "more_products": "Más productos",
+    "pay": "Pagar",
+    "confirm": "Confirmar",
+    "call": "Llamar",
+    "backToStore": "Regresar a la tienda",
+    "departments": "Departamentos",
+    "categories": "Categorías",
+    "all.products": "Todos los productos",
+    "acceptPolicyOrder": "Al realizar una órden usted acepta nuestros:"
+  },
+
+  "payment": {
+    "paymentMethods": "Métodos de pago",
+    "zelle": "Zelle (US)",
+    "phoneCall": "Pago en Moneda Libremente Convertible (MLC)",
+    "phoneCallDescription": "Complete su orden haciendo una transferencia en MLC"
+  },
+
+  "profile": {
+    "myInfo.title": "Mis Datos",
+    "myOrders": {
+      "title": "Mis Órdenes",
+      "orderCode": "No. de orden",
+      "orderCodeStatus": "Número de orden/Estado",
+      "state": "Estado",
+      "payDate": "Fecha de Compra",
+      "receiver": "Destinatario"
+    },
+    "myShippingAddressees": {
+      "title": "Destinatarios",
+      "name": "Nombre y apellidos",
+      "address": "Dirección de entrega"
+    },
+    "subscriptions": {
+      "title": "Subscripciones",
+      "newsLetters": "Boletines",
+      "promotions": "Promociones",
+      "reminders": "Recordatorios",
+      "updates": "Actualizaciones"
+    }
+  },
+
+  "deliveryTime": {
+    "notAvailable": "No disponible",
+    "in24Hours": "Menso de 24 horas",
+    "inDays": "{{time}} días"
+  },
+
+  "all": "Todos",
+  "seeMore": "Ver más",
+  "requested": "solicitada",
+  "waiting_for_payment": "en espera de pago",
+  "payment_needs_approval": "pendiente por aprovación",
+  "delivering": "siendo entregada",
+  "delivered": "entregada",
+  "problem": "con problemas",
+  "payment_needs_revision": "Pago en revisión",
+  "lb": "lb",
+
+  "APP_NAME": "dashcore",
+  "About": "About",
+  "Hello world !": "Hello world !",
+  "Home": "Home",
+  "Logged in as": "Logged in as",
+  "save": "Guardar",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Password": "Password",
+  "Password is required": "Password is required",
+  "Username": "Username",
+  "Username is required": "Username is required",
+  "Username or password incorrect.": "Username or password incorrect.",
+  "Remember me": "Remember me",
+  "Version": "Version",
+  "termsAndConditions": "Términos y condiciones",
+  "privacyPolicy": "Política de privacidad",
+  "deliveryPolicy": "Política de entregas"
+}

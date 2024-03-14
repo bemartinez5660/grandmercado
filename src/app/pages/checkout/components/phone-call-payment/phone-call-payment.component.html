@@ -1,0 +1,55 @@
+<mat-expansion-panel hideToggle class="payment__method">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <div>
+        <span class="payment__name">{{ "payment.phoneCall" | translate }}</span>
+        <p>
+          {{ "payment.phoneCallDescription" | translate }}
+        </p>
+      </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayout.lt-md="column">
+    <div>
+      <p
+        [innerHtml]="
+          'shop.checkout.payment.phoneCall.text'
+            | translate : { phone: payment.phone }
+        "
+      ></p>
+      <span
+        [innerHTML]="'shop.checkout.payment.phoneCall.fee' | translate"
+      ></span>
+    </div>
+    <div
+      fxLayout="column"
+      fxLayoutAlign="start center"
+      fxLayoutGap="10px"
+      fxFlex="60"
+      fxLayout.lt-sm="column"
+    >
+      <!-- <a href="tel:{{ payment.phone }}" style="text-decoration: none">
+        <button class="btn-secondary">
+          <span>{{ "shop.checkout.payment.call" | translate }}</span>
+          <span class="iconify" data-icon="bx:phone-call"></span>
+        </button>
+      </a> -->
+      <a
+        href="https://wa.me/{{ payment.phone }}/?text={{
+          'Deseo pagar la orden ' +
+            order.order_code +
+            ' mediante transferencia MLC'
+        }}"
+        style="text-decoration: none"
+      >
+        <button class="btn-secondary">
+          <span>{{ "shop.checkout.payment.contact" | translate }}</span>
+          <span
+            class="iconify"
+            data-icon="logos:whatsapp-monochrome-icon"
+          ></span>
+        </button>
+      </a>
+    </div>
+  </div>
+</mat-expansion-panel>

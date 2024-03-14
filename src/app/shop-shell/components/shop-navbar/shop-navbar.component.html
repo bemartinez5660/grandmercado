@@ -1,0 +1,107 @@
+<div fxShow.lt-md fxHide class="mobile-province-select">
+  <app-province-select></app-province-select>
+</div>
+<div class="nav-bar">
+  <header
+    id="navbar"
+    fxLayout="row nowrap"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap="50px"
+  >
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <button
+        fxHide
+        fxShow.lt-md
+        mat-icon-button
+        aria-label="Menu Button"
+        class="sidenav-menu-button"
+        (click)="toggleSideNav()"
+      >
+        <span class="iconify" data-icon="material-symbols:menu-rounded"></span>
+      </button>
+      <a [routerLink]="['/home']" class="navbar-brand">
+        <img fxHide.lt-md src="{{ agencyLogo }}" alt="Logo" class="logo" />
+        <img
+          fxShow.lt-md
+          fxHide
+          src="{{ agencyLogoSmall }}"
+          alt="Logo Small"
+          class="logo-small"
+        />
+      </a>
+    </div>
+
+    <div
+      fxLayout="row nowrap"
+      fxLayoutAlign="space-between center"
+      fxLayoutAlign.lt-md="end center"
+    >
+      <div class="search-box">
+        <app-search-input
+          (onSearch)="search($event)"
+          (onClear)="clearSearch()"
+        ></app-search-input>
+      </div>
+      <div
+        class="navbar-buttons"
+        fxLayout="row"
+        fxLayoutGap="20px"
+        fxLayoutAlign="center center"
+      >
+        <div fxLayoutAlign="center center" fxHide.lt-md fxShow>
+          <app-province-select></app-province-select>
+        </div>
+        <div
+          fxHide.lt-md
+          class="btn-collection-menu"
+          (click)="menuService.toggleDepartmentMenu()"
+        >
+          <span>{{ "shop.departments" | translate }}</span>
+        </div>
+        <button
+          mat-mini-fab
+          color="primary"
+          *ngIf="user"
+          [routerLink]="['./profile']"
+        >
+          <span class="iconify" data-icon="fa:user-o"></span>
+        </button>
+        <app-cart-menu></app-cart-menu>
+        <ng-container *ngIf="!user; else logout">
+          <button class="btn-primary" [routerLink]="loginUrl">
+            <span class="iconify" data-icon="prime:sign-in"></span>
+            <span class="text-up" fxHide.lt-md>{{
+              "nav.login" | translate
+            }}</span>
+          </button>
+        </ng-container>
+        <ng-template #logout>
+          <button class="btn-primary" (click)="onLogout()">
+            <span
+              class="iconify"
+              data-icon="prime:sign-in"
+              style="rotate: 180deg"
+            ></span>
+            <span class="text-up" fxHide.lt-md>{{
+              "nav.logout" | translate
+            }}</span>
+          </button>
+        </ng-template>
+      </div>
+    </div>
+  </header>
+  <div style="display: flex; justify-content: center">
+    <div class="mobile-search-box">
+      <app-search-input
+        (onSearch)="search($event)"
+        (onClear)="clearSearch()"
+      ></app-search-input>
+    </div>
+  </div>
+  <app-header-departments></app-header-departments>
+  <div class="collections" *ngIf="menuService.isOpenMenu()" @departmentsExpand>
+    <div class="container">
+      <app-department-slides></app-department-slides>
+    </div>
+  </div>
+</div>

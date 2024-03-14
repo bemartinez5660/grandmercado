@@ -1,0 +1,38 @@
+@use "colors" as colors;
+@use "breakpoints" as breakpoints;
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    cursor: pointer;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #434343;
+    display: flex;
+    align-items: center;
+    svg {
+      font-size: 25px;
+    }
+  }
+  .active-link {
+    color: colors.$primary-color;
+  }
+}
+
+.mat-drawer-content {
+  min-height: 100vh;
+}
+
+@include breakpoints.media-breakpoint("lt-md") {
+  .mat-drawer {
+    width: 50vw;
+  }
+}
+@include breakpoints.media-breakpoint("lt-sm") {
+  .mat-drawer {
+    width: 70vw;
+  }
+}

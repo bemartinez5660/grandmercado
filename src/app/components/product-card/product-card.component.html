@@ -1,0 +1,79 @@
+<div class="product-card" fxLayout="column" fxLayoutAlign="space-between">
+  <div class="product-card__content">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      class="product-card__image"
+    >
+      <img
+        [src]="product.image"
+        onerror="this.src='assets/img/no-image.png'"
+        [alt]="product.name"
+        [routerLink]="['/product', product.id]"
+        (click)="onSelect()"
+      />
+    </div>
+    <div fxLayout="column" fxLayoutGap="3px">
+      <p
+        class="product-card__title"
+        (click)="onSelect()"
+        [routerLink]="['/product', product.id]"
+      >
+        {{ product.name }}
+      </p>
+      <!-- <span class="product-card__provider">{{ product.provider?.name }}</span> -->
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center start"
+        fxLayoutGap.lt-md="6px"
+      >
+        <span class="product-card__price">{{
+          product.sell_price | currency
+        }}</span>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="6px"
+          class="product-card__delivery"
+        >
+          <span class="iconify" data-icon="iconoir:delivery-truck"></span>
+          <span>
+            {{
+              product.delivery_time
+                | deliveryTime
+                | translate : { time: product.delivery_time }
+            }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="product-cart__actions"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div
+      class="product-card__quantity"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+    >
+      <button mat-icon-button (click)="decrement()" [disabled]="quantity == 1">
+        <img src="assets/img/icons/black-chevron-left.svg" />
+      </button>
+      <span>{{ quantity }}</span>
+      <button mat-icon-button (click)="increment()">
+        <img src="assets/img/icons/black-chevron-right.svg" />
+      </button>
+    </div>
+    <button
+      mat-mini-fab
+      color="primary"
+      (click)="onAddToCart(product, quantity)"
+    >
+      <span class="iconify" data-icon="uil:shopping-basket"></span>
+    </button>
+  </div>
+</div>

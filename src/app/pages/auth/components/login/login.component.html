@@ -1,0 +1,99 @@
+<section class="page login-page">
+  <div
+    fxLayout="row"
+    fxFlex
+    fxLayoutAlign="center center"
+    fxLayoutGap="40px"
+    fxLayout.lt-md="column"
+  >
+    <div class="login-image">
+      <div class="login-image__dashed-square"></div>
+      <div class="login-image__solid-square"></div>
+      <app-svg src="assets/img/shop/login-image.svg"></app-svg>
+    </div>
+    <div
+      class="login raised-container"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <h1 class="login__title">{{ "auth.login.title" | translate }}</h1>
+
+      <form
+        class="login__form"
+        fxLayout="column"
+        [formGroup]="credentialsForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label class="text-up">{{
+            "auth.login.email" | translate
+          }}</mat-label>
+          <input
+            matInput
+            type="email"
+            id="email"
+            formControlName="email"
+            required
+            placeholder="ej: user@gmail.com"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label class="text-up">{{
+            "auth.login.password" | translate
+          }}</mat-label>
+          <input
+            matInput
+            type="password"
+            id="password"
+            formControlName="password"
+            required
+          />
+        </mat-form-field>
+
+        <a class="login__forgot" [routerLink]="['../forgot']" mat-button>{{
+          "auth.login.forgotPassword" | translate
+        }}</a>
+
+        <mat-checkbox id="keepLogin" formControlName="keepLogin">{{
+          "auth.login.keepMeLogged" | translate
+        }}</mat-checkbox>
+
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px">
+          <button
+            type="button"
+            class="btn-secondary"
+            [routerLink]="registerUrl"
+          >
+            <span class="iconify" data-icon="iconoir:arrow-left"></span>
+            <span class="text-up">
+              {{ "auth.login.register" | translate }}
+            </span>
+          </button>
+          <button
+            type="submit"
+            class="btn-primary"
+            [disabled]="credentialsForm.invalid"
+          >
+            <span class="text-up">
+              {{ "auth.login.signIn" | translate }}
+            </span>
+            <span class="iconify" data-icon="iconoir:arrow-right"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="legal-terms-box">
+    <p>
+      {{ "auth.login.acceptLegalTerms" | translate }}
+      <a target="_blank" rel="noopener" routerLink="/terms-and-conditions">{{
+        "termsAndConditions" | translate
+      }}</a>
+      {{ "auth.acceptLegalTerms.and" | translate }}
+      <a target="_blank" rel="noopener" routerLink="/privacy-policy">{{
+        "privacyPolicy" | translate
+      }}</a>
+    </p>
+  </div>
+</section>

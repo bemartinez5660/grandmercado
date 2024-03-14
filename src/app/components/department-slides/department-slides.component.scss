@@ -1,0 +1,62 @@
+@use "colors" as colors;
+@use "breakpoints" as breakpoints;
+
+.title {
+  color: #434343;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+}
+swiper {
+  margin-top: 20px;
+}
+@include breakpoints.media-breakpoint("lt-md") {
+  swiper {
+    margin-inline: -15px;
+  }
+}
+
+.department {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  &__icon {
+    // width: 100px;
+    // height: 100px;
+    width: 85px;
+    height: 85px;
+    background: colors.$primary-color;
+    opacity: 0.6;
+
+    border-radius: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__image {
+      height: 60%;
+    }
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.categories {
+  margin-top: 15px;
+}
+
+.department.active {
+  .department__icon {
+    background-color: colors.$primary-color;
+    opacity: 1;
+  }
+  .department__name {
+    color: colors.$primary-color;
+  }
+}

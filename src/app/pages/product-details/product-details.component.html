@@ -1,0 +1,73 @@
+<section class="page-container">
+  <div
+    class="product-details"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="30"
+    fxLayout.lt-sm="column"
+    fxLayoutGap.lt-md="20"
+    *ngIf="product"
+  >
+    <!-- *ngIf="product$ | async as product" -->
+    <div class="product-details__image">
+      <img [src]="product.image" [alt]="product.name" />
+    </div>
+    <div
+      class="product-details__information"
+      fxLayout="column"
+      fxLayoutGap="10px"
+      fxFlex
+    >
+      <span class="product-details__title">{{ product.name }}</span>
+      <span class="product-details__title">
+        {{ product.sell_price | currency }}
+      </span>
+      <span class="product-details__information_text">
+        <strong>{{ "shop.products.provider" | translate }}:</strong>
+        {{ product.provider?.name }}
+      </span>
+      <span class="product-details__information_text">
+        <strong>{{ "shop.products.deliveryTime" | translate }}:</strong>
+        {{
+          product.delivery_time
+            | deliveryTime
+            | translate : { time: product.delivery_time }
+        }}
+      </span>
+      <span class="product-details__information_text">
+        <strong>{{ "shop.products.details" | translate }}:</strong>
+        <div [innerHTML]="product.description | safeHtml"></div>
+      </span>
+
+      <div class="product-details__actions" fxLayout="row" fxLayoutGap="20px">
+        <div
+          class="product-details__quantity"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <button
+            mat-icon-button
+            (click)="decrement()"
+            [disabled]="quantity == 1"
+          >
+            <img src="assets/img/icons/black-chevron-left.svg" />
+          </button>
+          <span>{{ quantity }}</span>
+          <button mat-icon-button (click)="increment()">
+            <img src="assets/img/icons/black-chevron-right.svg" />
+          </button>
+        </div>
+        <button
+          class="btn-primary btn-add-to-cart"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+          (click)="onAddToCart(product, quantity)"
+        >
+          <span>{{ "shop.products.addToCart" | translate }}</span>
+          <span class="iconify" data-icon="uil:shopping-basket"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

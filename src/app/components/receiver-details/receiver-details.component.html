@@ -1,0 +1,70 @@
+<ng-container *ngIf="receiverToShow">
+  <div class="receiver">
+    <span class="receiver__title">{{
+      "shop.checkout.receiverData" | translate
+    }}</span>
+    <div class="receiver_details" fxLayout="column" fxLayoutGap="5px">
+      <div fxLayout="row">
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          "shop.order.name" | translate
+        }}</span>
+        <span fxFlex="33" fxFlex.lt-md="50">{{ receiverToShow.name }}</span>
+      </div>
+      <div fxLayout="row">
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          "shop.order.ci" | translate
+        }}</span>
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          receiverToShow.personal_id
+        }}</span>
+      </div>
+      <div fxLayout="row">
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          "shop.order.phone" | translate
+        }}</span>
+        <span fxFlex="33" fxFlex.lt-md="50">{{ receiverToShow.phone }}</span>
+      </div>
+      <div fxLayout="row">
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          "shop.order.province" | translate
+        }}</span>
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          receiverToShow.province.name
+        }}</span>
+      </div>
+      <div fxLayout="row">
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          "shop.order.city" | translate
+        }}</span>
+        <span fxFlex="33" fxFlex.lt-md="50">{{ receiverToShow.city }}</span>
+      </div>
+      <div fxLayout="row">
+        <span fxFlex="33" fxFlex.lt-md="50">{{
+          "shop.order.address" | translate
+        }}</span>
+        <span fxFlex="33" fxFlex.lt-md="50">{{ receiverToShow.address }}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="showDefaultReceiver && !receiverToShow">
+  <div class="receiver" *ngIf="receiver$ | async as receiver">
+    <span class="receiver__title">{{
+      "shop.checkout.receiverData" | translate
+    }}</span>
+    <div class="receiver__details" fxLayout="row">
+      <div fxLayout="column" fxFlex="33" fxFlex.lt-md="50">
+        <span>{{ "shop.order.name" | translate }}</span>
+        <span>{{ "shop.order.ci" | translate }}</span>
+        <span>{{ "shop.order.phone" | translate }}</span>
+        <span>{{ "shop.order.address" | translate }}</span>
+      </div>
+      <div fxLayout="column" fxFlex="33" fxFlex.lt-md="50">
+        <span>{{ receiver.name }}</span>
+        <span>{{ receiver.personal_id }}</span>
+        <span>{{ receiver.phone }}</span>
+        <span>{{ receiver.address }}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,27 @@
+<section class="page-container">
+  <div class="page-box">
+    <ng-container *ngIf="order$ | async as order">
+      <div class="order-status-box">
+        <span
+          class="order-status"
+          [innerHTML]="orderStatusIcons[order.status] | safeHtml"
+        ></span>
+        <h2>
+          {{ "order.status.title" | translate }} {{ order.status | translate }}
+        </h2>
+      </div>
+
+      <app-orders-details-table [data]="order"></app-orders-details-table>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button
+          class="btn-secondary"
+          [routerLink]="['../../checkout/payment', order.order_code]"
+          *ngIf="order.status == 'waiting_for_payment'"
+        >
+          <span>{{ "shop.cart.actions.pay" | translate }}</span>
+          <span class="iconify" data-icon="fluent:payment-16-regular"></span>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</section>

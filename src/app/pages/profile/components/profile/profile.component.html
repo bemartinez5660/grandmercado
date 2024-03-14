@@ -1,0 +1,34 @@
+<div
+  fxLayout="row wrap"
+  fxLayoutAlign="center center"
+  fxLayoutGap="10px"
+  class="profile"
+>
+  <span
+    class="profile__link"
+    [routerLink]="['user']"
+    routerLinkActive="link-activated"
+    >{{ "profile.myInfo.title" | translate }}</span
+  >
+  <span
+    class="profile__link"
+    [routerLink]="['shipping-addressees']"
+    routerLinkActive="link-activated"
+    >{{ "profile.myShippingAddressees.title" | translate }}</span
+  >
+  <span
+    class="profile__link"
+    [routerLink]="['my-orders']"
+    routerLinkActive="link-activated"
+    >{{ "profile.myOrders.title" | translate }}</span
+  >
+  <span
+    class="profile__link"
+    [routerLink]="['subscriptions']"
+    routerLinkActive="link-activated"
+    >{{ "profile.subscriptions.title" | translate }}</span
+  >
+</div>
+<section class="page-container">
+  <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,6 @@
+@use "colors" as colors;
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: colors.$primary-color;
+}

@@ -1,0 +1,75 @@
+<section
+  fxLayout="column"
+  fxFlex
+  fxLayoutAlign="center center"
+  fxLayoutGap="40px"
+  class="page"
+>
+  <div
+    class="changePass raised-container"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <div class="changePass__dashed-square"></div>
+    <div class="changePass__solid-square"></div>
+    <h1 class="changePass__title">
+      {{ "auth.changePass.title" | translate }}
+    </h1>
+
+    <ng-container *ngIf="!submittedSucessfully; else onSuccessSubmitted">
+      <p class="changePass__info">
+        {{ "auth.changePass.info" | translate }}
+      </p>
+
+      <form
+        class="changePass__form"
+        fxLayout="column"
+        [formGroup]="formPassword"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label class="text-up">{{
+            "auth.reset-password.password" | translate
+          }}</mat-label>
+          <input
+            matInput
+            type="password"
+            id="password"
+            formControlName="new_password1"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label class="text-up">{{
+            "auth.reset-password.confirm" | translate
+          }}</mat-label>
+          <input
+            matInput
+            type="password"
+            id="repeat"
+            formControlName="new_password2"
+            required
+          />
+        </mat-form-field>
+        <mat-error *ngIf="this.formPassword.hasError('notSame')">
+          {{ "auth.changePass.notEquals" | translate }}
+        </mat-error>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <button type="submit" class="btn-primary">
+            <span class="text-up">{{
+              "auth.changePass.send" | translate
+            }}</span>
+            <span class="iconify" data-icon="iconoir:arrow-right"> </span>
+          </button>
+        </div>
+      </form>
+    </ng-container>
+
+    <ng-template #onSuccessSubmitted>
+      <p class="changePass__info">
+        {{ "auth.changePass.submitted" | translate }}
+      </p>
+    </ng-template>
+  </div>
+</section>

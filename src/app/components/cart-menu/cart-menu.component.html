@@ -1,0 +1,81 @@
+<ng-container *ngIf="cart$ | async as cart">
+  <ng-container *ngIf="cart.items.length; else emptyCart">
+    <button
+      fxHide
+      fxShow.gt-sm
+      mat-mini-fab
+      color="primary"
+      [matMenuTriggerFor]="menu"
+      [matBadge]="cart.items.length"
+    >
+      <span class="iconify" data-icon="uil:shopping-basket"></span>
+    </button>
+    <button
+      fxHide.gt-sm
+      fxShow
+      mat-mini-fab
+      color="primary"
+      [matBadge]="cart.items.length"
+      [routerLink]="['/cart']"
+    >
+      <span class="iconify" data-icon="uil:shopping-basket"></span>
+    </button>
+  </ng-container>
+  <ng-template #emptyCart>
+    <button mat-mini-fab disabled="true">
+      <span class="iconify" data-icon="uil:shopping-basket"></span>
+    </button>
+  </ng-template>
+  <mat-menu #menu="matMenu" xPosition="before" [overlapTrigger]="false">
+    <span class="menu-title">{{ "shop.cart.productList" | translate }}</span>
+    <ng-container *ngFor="let item of cart.items">
+      <app-product-cart
+        [cartItem]="item"
+        [cartProvince]="cart.province"
+      ></app-product-cart>
+    </ng-container>
+    <div class="cart-details" fxLayout="column" fxLayoutAlign="center end">
+      <div fxLayout="row" fxLayoutGap="40px">
+        <strong class="cart-details__title"
+          >{{ "shop.cart.total" | translate }}:</strong
+        >
+        <span class="cart-details__value">{{
+          cart.sell_price | currency
+        }}</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="40px">
+        <strong class="cart-details__title"
+          >{{ "shop.cart.shipping" | translate }}:</strong
+        >
+        <span class="cart-details__value">{{
+          cart.sell_distribution | currency
+        }}</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="40px">
+        <strong class="cart-details__title"
+          >{{ "shop.cart.subtotal" | translate }}:</strong
+        >
+        <span class="cart-details__value">{{
+          cart.sell_total | currency
+        }}</span>
+      </div>
+    </div>
+    <div
+      class="cart-actions"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="20px"
+    >
+      <button class="btn-secondary" [routerLink]="['./cart']">
+        <span>{{ "shop.cart.actions.goToCart" | translate }}</span>
+        <span class="iconify" data-icon="uil:shopping-basket"></span>
+      </button>
+      <button class="btn-primary" [routerLink]="['./checkout']">
+        <span>
+          {{ "shop.cart.actions.pay" | translate }}
+        </span>
+        <span class="iconify" data-icon="fluent:payment-16-regular"></span>
+      </button>
+    </div>
+  </mat-menu>
+</ng-container>

@@ -1,0 +1,23 @@
+<ng-container *ngIf="data$ | async as departmentData">
+  <div class="header-departments">
+    <span
+      class="department-item"
+      [routerLink]="['/products']"
+      routerLinkActive="active-department"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >{{ "all" | translate }}</span
+    >
+    <ng-container
+      *ngFor="let item of departmentData.departments; let i = index"
+    >
+      <span
+        class="department-item"
+        (click)="onSelectDepartment(i, departmentData.departments)"
+        [ngClass]="{
+          'active-department': item.slug === departmentData.selected_departament
+        }"
+        >{{ item.name }}</span
+      >
+    </ng-container>
+  </div>
+</ng-container>

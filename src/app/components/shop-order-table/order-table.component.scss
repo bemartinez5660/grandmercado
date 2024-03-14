@@ -1,0 +1,50 @@
+@use "colors" as colors;
+
+thead th:nth-child(1) {
+  width: 10%;
+}
+
+thead th:nth-child(2) {
+  text-align: left;
+  width: 45%;
+}
+
+thead th:nth-child(3) {
+  text-align: left;
+  width: 20%;
+}
+
+thead th:nth-child(4) {
+  text-align: left;
+  width: 20%;
+}
+
+img {
+  width: 35px;
+  height: 35px;
+}
+
+.product {
+  img {
+    width: 45px;
+    height: 45px;
+  }
+  &__name {
+    font-weight: 500;
+    font-size: clamp(0.625rem, 2.5vw, 0.8rem);
+    line-height: 15px;
+    color: #000437;
+    margin-bottom: 5px;
+  }
+  &__price {
+    font-weight: 500;
+    font-size: clamp(0.325rem, 2.5vw, 0.6rem);
+    line-height: 9px;
+  }
+}
+.quantity,
+.price {
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(0.625rem, 2.5vw, 0.8rem);
+}

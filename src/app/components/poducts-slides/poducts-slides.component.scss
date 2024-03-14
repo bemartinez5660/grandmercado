@@ -1,0 +1,104 @@
+@use "breakpoints" as breakpoints;
+@use "buttons";
+@use "colors" as colors;
+
+.slides {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .slides-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    h1 {
+      max-width: 75%;
+    }
+  }
+  .casillero-sides {
+    padding: 10px 0;
+  }
+  ::ng-deep .swiper-wrapper {
+    width: 70vw;
+  }
+  .product-card {
+    width: auto;
+  }
+  .button-prev {
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    z-index: 1;
+    @extend .button-navigation;
+  }
+  .button-next {
+    position: absolute;
+    top: 50%;
+    right: 45px;
+    z-index: 1;
+    @extend .button-navigation;
+  }
+}
+
+@include breakpoints.media-breakpoint("lt-md") {
+  .slides {
+    ::ng-deep .swiper-wrapper {
+      width: 80vw;
+    }
+    .slides-header {
+      align-items: center;
+    }
+    .button-prev {
+      left: -10px;
+    }
+    .button-next {
+      right: -10px;
+    }
+  }
+}
+
+@include breakpoints.media-breakpoint("lt-sm") {
+  .slides {
+    ::ng-deep .swiper-wrapper {
+      width: 90vw;
+    }
+  }
+}
+
+@include breakpoints.media-breakpoint("gt-lg") {
+  .slides {
+    .button-prev {
+      left: -10px;
+    }
+    .button-next {
+      right: -10px;
+    }
+  }
+}
+
+@include breakpoints.media-breakpoint("gt-md") {
+  .slides {
+    .button-prev {
+      left: -40px;
+    }
+    .button-next {
+      right: -40px;
+    }
+  }
+}
+
+@include breakpoints.media-breakpoint("lg") {
+  .slides {
+    ::ng-deep .swiper-wrapper {
+      width: 65vw;
+    }
+  }
+}
+@include breakpoints.media-breakpoint("xl") {
+  .slides {
+    ::ng-deep .swiper-wrapper {
+      width: 50vw;
+    }
+  }
+}

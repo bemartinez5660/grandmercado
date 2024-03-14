@@ -1,0 +1,19 @@
+<div
+  class="section"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayout.lt-sm="column"
+>
+  <app-svg src="assets/img/shop/payment-complete.svg"></app-svg>
+  <div class="section-content">
+    <h1 class="section-content__title heading-2">
+      {{ "shop.checkout.payment.paymentCompletedTitle" | translate }}
+    </h1>
+    <p class="section-content__desc description">
+      {{ "shop.checkout.payment.paymentCompletedDescription" | translate }}
+    </p>
+    <button class="btn-primary" [routerLink]="['../']">
+      <span>{{ "shop.backToStore" | translate }}</span>
+    </button>
+  </div>
+</div>

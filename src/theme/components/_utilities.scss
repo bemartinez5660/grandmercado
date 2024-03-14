@@ -1,0 +1,67 @@
+@use "colors" as color;
+@use "breakpoints" as breakpoint;
+
+$webkit-line-clamp: 1 !default;
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.rectangle {
+  box-sizing: border-box;
+  z-index: -1;
+  position: absolute;
+}
+.dashed-square {
+  width: 227px;
+  height: 227px;
+  @extend .rectangle;
+  border: 3px dashed color.$primary-color;
+  @include breakpoint.media-breakpoint("lt-md") {
+    width: 112px;
+    height: 112px;
+  }
+}
+.solid-square {
+  @extend .rectangle;
+  border: 3px solid color.$primary-color;
+}
+
+// NEW Square class definition
+.square {
+  box-sizing: border-box;
+  z-index: -1;
+  position: absolute;
+  &_dashed {
+    width: 10vw;
+    max-width: 227px;
+    min-width: 112px;
+    height: 10vw;
+    max-height: 227px;
+    min-height: 112px;
+    @extend .square;
+    border: 3px dashed color.$primary-color;
+  }
+  &_solid {
+    @extend .square;
+    border: 3px solid color.$primary-color;
+  }
+  @include breakpoint.media-breakpoint("lt-md") {
+    &_dashed {
+      border: 2px dashed color.$primary-color;
+    }
+  }
+}
+
+div.raised-container {
+  background: #fcfcfc;
+  box-shadow: 0px 4px 4px rgba(30, 206, 229, 0.17);
+  border-radius: 30px;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: $webkit-line-clamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

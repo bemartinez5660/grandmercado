@@ -1,0 +1,23 @@
+#shop-footer {
+  background-color: #eeeff4;
+  margin-top: 100px;
+
+  .footer {
+    padding: 50px 0;
+    &__title {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: clamp(0.2rem, 4vw, 1.1rem);
+      line-height: clamp(0.2rem, 6vw, 1.25rem);
+      margin-bottom: 32px;
+    }
+    &__link {
+      margin-bottom: 10px;
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<footer id="shop-footer">
+  <div class="container">
+    <div
+      gdColumns="25% 25% 25% 25%"
+      gdColumns.lt-md="33% 33% 33%"
+      gdColumns.lt-sm="50% 50%"
+      gdGap="15px"
+      class="footer"
+    >
+      <div
+        fxLayout="column"
+        *ngIf="agencyInfo?.phone || agencyInfo?.email || agencyInfo?.address"
+      >
+        <span class="footer__title">{{ "shop.footer.help" | translate }}</span>
+
+        <ng-container *ngIf="agencyInfo.phone">
+          <span>{{ "shop.footer.callTo" | translate }}</span>
+          <span class="footer__link"
+            ><a href="tel:{{ agencyInfo.phone }}"
+              ><strong>{{ agencyInfo.phone }}</strong></a
+            ></span
+          >
+        </ng-container>
+        <ng-container *ngIf="agencyInfo.email">
+          <span>{{ "shop.footer.email" | translate }}</span>
+          <span class="footer__link"
+            ><a href="mailto:{{ agencyInfo.email }}">{{
+              agencyInfo.email
+            }}</a></span
+          >
+        </ng-container>
+        <ng-container *ngIf="agencyInfo.address">
+          <span>{{ "shop.footer.address" | translate }}</span>
+          <span class="footer__link">{{ agencyInfo.address }}</span>
+        </ng-container>
+        <!-- <span
+          ><a>{{ "shop.footer.whatShouldKnow" | translate }}</a></span
+        >
+        <span
+          ><a>{{ "shop.footer.sellWithUs" | translate }}</a></span
+        > -->
+      </div>
+      <div fxLayout="column">
+        <span class="footer__title">{{ "shop.footer.shop" | translate }}</span>
+        <span class="footer__link"
+          ><a [routerLink]="['/']">{{
+            "shop.footer.home" | translate
+          }}</a></span
+        >
+        <span class="footer__link"
+          ><a [routerLink]="['/terms-and-conditions']">{{
+            "termsAndConditions" | translate
+          }}</a></span
+        >
+        <span class="footer__link"
+          ><a [routerLink]="['/privacy-policy']">{{
+            "privacyPolicy" | translate
+          }}</a></span
+        >
+        <span class="footer__link"
+          ><a [routerLink]="['/delivery-policy']">{{
+            "deliveryPolicy" | translate
+          }}</a></span
+        >
+      </div>
+      <div fxLayout="column">
+        <span class="footer__title">{{
+          "shop.footer.customer" | translate
+        }}</span>
+        <span class="footer__link"
+          ><a [routerLink]="['auth/register']">{{
+            "shop.footer.signIn" | translate
+          }}</a></span
+        >
+        <span class="footer__link"
+          ><a [routerLink]="['cart']">{{
+            "shop.footer.myCart" | translate
+          }}</a></span
+        >
+        <span class="footer__link"
+          ><a [routerLink]="['profile/my-orders']">{{
+            "shop.footer.myOrders" | translate
+          }}</a></span
+        >
+      </div>
+      <!-- <div fxLayout="column">
+        <span class="footer__title">{{ "shop.footer.links" | translate }}</span>
+        <span
+          ><a>{{ "shop.footer.foodCombos" | translate }}</a></span
+        >
+      </div> -->
+    </div>
+  </div>
+</footer>

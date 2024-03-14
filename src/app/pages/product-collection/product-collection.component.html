@@ -1,0 +1,24 @@
+<ng-container *ngIf="collection$ | async as collection">
+  <div>
+    <h1 class="shop-section-title">
+      {{ collection.title }}
+    </h1>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="40px">
+    <div
+      [ngClass.lt-sm]="['product-list']"
+      gdColumns="196px 196px 196px 196px"
+      gdColumns.lt-md="196px 196px 196px"
+      gdColumns.lt-sm="50% 50%"
+      gdGap="5px"
+      gdGap.gt-sm="20px"
+    >
+      <app-product-card
+        *ngFor="let product of collection.products"
+        [product]="product"
+        class="product-list__card"
+      ></app-product-card>
+    </div>
+  </div>
+</ng-container>

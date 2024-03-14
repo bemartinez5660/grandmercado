@@ -1,0 +1,45 @@
+<ng-container *ngIf="chipsData$ | async as data">
+  <mat-chip-listbox
+    selectable
+    aria-label="Departaments"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    class="chip-list"
+  >
+    <mat-chip-option
+      #chip
+      *ngFor="let item of data.departaments"
+      [value]="item"
+      [selected]="
+        checkSelectedDepartament(
+          item.slug,
+          data.selected_departament,
+          data.departaments
+        )
+      "
+      (click)="onSelectDepartament(chip)"
+      class="chip-list__dep-item"
+      >{{ item.name }}</mat-chip-option
+    >
+  </mat-chip-listbox>
+  <ng-container *ngIf="selectedDepartamet">
+    <mat-chip-listbox
+      selectable
+      aria-label="Categories"
+      fxLayout="row"
+      fxLayoutAling="center center"
+      class="chip-list"
+    >
+      <mat-chip-option
+        #catChip
+        *ngFor="let item of selectedDepartamet?.categories"
+        [value]="item"
+        [selected]="item.slug == data.selected_category"
+        (click)="onSelectCategory(catChip)"
+        class="chip-list__cat-item"
+      >
+        {{ item.name }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </ng-container>
+</ng-container>

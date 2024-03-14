@@ -1,0 +1,15 @@
+@use "colors" as colors;
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before,
+.mat-form-field-ripple,
+.mat-focused .mat-form-field-ripple,
+.mat-form-field-underline {
+  background-color: colors.$primary-color;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: colors.$primary-color;
+}
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: colors.$primary-color;
+}

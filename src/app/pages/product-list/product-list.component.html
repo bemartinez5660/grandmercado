@@ -1,0 +1,58 @@
+<ng-container
+  *ngIf="category_departament | async as category_departament; else searchTitle"
+>
+  <app-department-slides [canNavigate]="true"></app-department-slides>
+
+  <div>
+    <h1 class="shop-section-title">
+      {{ category_departament.title
+      }}<small *ngIf="q.value.length" class="shop-section-subtitle"
+        >: {{ q.value }}</small
+      >
+    </h1>
+  </div>
+</ng-container>
+
+<ng-template #searchTitle>
+  <h1 *ngIf="q.value.length" class="shop-section-title">{{ q.value }}</h1>
+  <h1 *ngIf="!q.value.length" class="shop-section-title">
+    {{ "shop.all.products" | translate }}
+  </h1>
+</ng-template>
+
+<div
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="40px"
+  *ngIf="allProducts$ | async as productList"
+>
+  <ng-container *ngIf="productList.count; else notFound">
+    <div
+      [ngClass.lt-sm]="['product-list']"
+      gdColumns="196px 196px 196px 196px"
+      gdColumns.lt-md="196px 196px 196px"
+      gdColumns.lt-sm="50% 50%"
+      gdGap="5px"
+      gdGap.gt-sm="20px"
+    >
+      <app-product-card
+        *ngFor="let product of productList.results"
+        [product]="product"
+        (select)="onProductSelect($event)"
+        class="product-list__card"
+      ></app-product-card>
+    </div>
+    <app-pagination
+      *ngIf="productList.pages > 1"
+      [page_total]="productList.pages"
+      [current]="current_page.value"
+      (onPage)="onGoTo($event)"
+      (onNext)="onNext($event)"
+      (onPrev)="onPrev($event)"
+    ></app-pagination>
+  </ng-container>
+</div>
+
+<ng-template #notFound>
+  <h1 class="shop-section-title">{{ "shop.products.notFound" | translate }}</h1>
+</ng-template>

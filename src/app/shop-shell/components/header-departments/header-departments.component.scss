@@ -1,0 +1,38 @@
+@use "breakpoints" as breakpoints;
+
+.header-departments {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: 50px;
+  min-height: 50px;
+  align-items: center;
+  padding-inline: 20px;
+  overflow-x: scroll;
+  justify-content: center;
+
+  .department-item {
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap !important;
+    display: inline-block;
+  }
+  .active-department {
+    font-weight: 600;
+  }
+}
+
+.header-departments {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.header-departments::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+@include breakpoints.media-breakpoint("xs") {
+  .header-departments {
+    justify-content: start;
+  }
+}

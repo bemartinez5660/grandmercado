@@ -1,0 +1,22 @@
+@use "colors" as colors;
+
+.profile {
+  // margin-bottom: 50px;
+  &__link {
+    margin-bottom: 20px;
+    padding: 11px 16px;
+    background: white;
+    color: black;
+    box-shadow: 0px 4px 4px rgba(30, 38, 229, 0.17);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: clamp(0.2rem, 3.5vw, 0.9rem);
+    line-height: clamp(0.5rem, 5vw, 1rem);
+    text-transform: uppercase;
+  }
+  .link-activated {
+    background: colors.$primary-color;
+    color: white;
+  }
+}

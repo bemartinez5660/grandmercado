@@ -1,0 +1,108 @@
+@use "colors" as colors;
+
+$fs-title: clamp(1.333rem, 6vw, 2rem);
+$lh-title: clamp(2.7rem, 7vw, 3rem);
+
+//**Shop Module**//
+$shop-fs-title: clamp(1.5rem, 4vw, 2.5rem);
+$shop-lh-title: clamp(2rem, 5vw, 3.438rem);
+$shop-section-fs-title: clamp(1rem, 7vw, 2rem);
+$shop-section-lh-title: clamp(2rem, 7vw, 2.5rem);
+//*****//
+
+$fs-link: 1.125rem; //18px; links
+$fs-p: clamp(0.778rem, 7vw, 1.111rem); //20px; description
+$lh-p: clamp(1.167rem, 7vw, 1.667rem);
+
+a.link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link {
+  font-weight: 300;
+  font-size: $fs-link;
+  line-height: 27px;
+  color: rgba(0, 0, 0, 0.6);
+  &.active {
+    font-weight: 600;
+    line-height: 27px;
+    text-decoration: underline colors.$primary-color;
+
+    color: #000000;
+  }
+}
+
+h1.heading-1 {
+  font-weight: 400;
+  font-size: $fs-title;
+  line-height: $lh-title;
+  margin-bottom: 40px;
+}
+
+h1.heading-shop {
+  font-weight: 700;
+  font-size: $shop-fs-title;
+  line-height: $shop-lh-title;
+  margin-bottom: 10px;
+}
+h1.shop-section-title {
+  font-size: $fs-title;
+  line-height: $lh-title;
+  font-weight: 700;
+  text-align: left;
+}
+h1.shop-banner-title {
+  font-size: $shop-section-fs-title;
+  line-height: $shop-section-lh-title;
+  font-weight: 700;
+  text-align: left;
+}
+
+h1.heading-2 {
+  font-size: $fs-title;
+  font-weight: 700;
+  line-height: $lh-title;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+h1.page-title {
+  font-size: clamp(1rem, 6vw, 2rem);
+  line-height: clamp(2.7rem, 7vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  color: #000000cc;
+}
+
+span.normal {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+span.normal {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+p.description {
+  font-size: $fs-p;
+  font-weight: 400;
+  line-height: $lh-p;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 53px;
+}
+
+p.normal {
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.text-up {
+  text-transform: uppercase;
+}

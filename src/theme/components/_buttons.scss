@@ -1,0 +1,144 @@
+@use "colors" as colors;
+
+.mat-fab:not([class*="mat-elevation-z"]),
+.mat-mini-fab:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+  font-size: 22px;
+  background-color: colors.$primary-color;
+}
+
+.mat-mini-fab.mat-accent.mat-button-disabled,
+.mat-mini-fab.mat-button-disabled.mat-button-disabled {
+  background-color: #bfbfbf;
+  color: white;
+}
+
+.btn-icon {
+  border: none;
+  background-color: transparent;
+  border-radius: 50px;
+}
+
+.btn-primary {
+  height: 40px;
+  padding: 5px 20px;
+  background: colors.$primary-color;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: colors.$typo-primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    font-size: 17px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  span:not(:last-child),
+  svg:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:focus,
+  &:hover {
+    background: colors.$typo-primary-color;
+    color: colors.$primary-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-secondary {
+  @extend .btn-primary;
+  background-color: #ececec;
+  color: colors.$primary-color;
+  &:focus,
+  &:hover {
+    background: colors.$primary-color;
+    color: colors.$typo-primary-color;
+  }
+}
+
+.btn-link-primary {
+  height: 40px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: colors.$primary-color;
+
+  &:focus,
+  &:hover {
+    color: colors.$typo-primary-color;
+  }
+
+  fa-icon {
+    margin-right: 10px;
+  }
+}
+
+button.simple-warm-button {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: left;
+  /* identical to box height */
+
+  color: rgba(0, 0, 0, 0.4);
+  border: none;
+
+  background: none;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    left: 0;
+    border-bottom: 1px solid #dc6666;
+    transition: all 0.5s;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.button-navigation {
+  font-size: 16px;
+  width: 29px;
+  height: 44px;
+  background: #c1c1c1;
+  border-radius: 22px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  &:hover {
+    background-color: colors.$primary-color;
+  }
+}

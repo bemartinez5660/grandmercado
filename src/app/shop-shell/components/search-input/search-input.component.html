@@ -1,0 +1,26 @@
+<form [formGroup]="searchForm">
+  <input
+    type="text"
+    class="search-bar"
+    placeholder="{{ 'shop.search' | translate }}"
+    (keyup.enter)="search()"
+    formControlName="searchQuery"
+  />
+  <button
+    mat-icon-button
+    type="button"
+    *ngIf="searchForm.controls['searchQuery'].value"
+    (click)="onClearSearch()"
+  >
+    <span class="iconify" data-icon="material-symbols:close-rounded"></span>
+  </button>
+  <button
+    mat-mini-fab
+    color="primary"
+    class="search-button"
+    (click)="search()"
+    [disabled]="searchForm.invalid"
+  >
+    <span class="iconify" data-icon="ion:search-outline"></span>
+  </button>
+</form>

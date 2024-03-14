@@ -1,0 +1,71 @@
+<mat-expansion-panel hideToggle class="payment__method">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <div>
+        <span class="payment__name">{{
+          "shop.checkout.payment.zelle" | translate
+        }}</span>
+        <p>
+          {{ "shop.checkout.payment.zelleDescription" | translate }}
+        </p>
+      </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <form
+    [formGroup]="zelleForm"
+    fxLayout="column"
+    class="payment__form"
+    (ngSubmit)="onSubmit()"
+  >
+    <div fxLayout="column" fxLayoutGap="10px">
+      <p
+        [innerHtml]="
+          'shop.checkout.payment.zelle.notes'
+            | translate
+              : {
+                  email: payment.email,
+                  amount: order.sell_total,
+                  order_code: order.order_code
+                }
+        "
+      ></p>
+      <p
+        [innerHtml]="'shop.checkout.payment.zelle.noteImportant' | translate"
+      ></p>
+      <p [innerHtml]="'shop.checkout.payment.zelle.note2' | translate"></p>
+    </div>
+
+    <span class="confirm-label">{{
+      "shop.checkout.payment.zelle.confirmationNeeded" | translate
+    }}</span>
+
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutGap="10px"
+      fxFlex="60"
+      fxLayout.lt-sm="column"
+    >
+      <mat-form-field appearance="fill" fxFlex="45">
+        <mat-label>{{
+          "shop.checkout.payment.confirmCode" | translate
+        }}</mat-label>
+        <input
+          matInput
+          id="email_phone"
+          formControlName="confirmation_code"
+          required
+        />
+      </mat-form-field>
+      <button
+        class="btn-secondary"
+        type="submit"
+        [disabled]="zelleForm.invalid"
+      >
+        <span>{{ "shop.confirm" | translate }}</span>
+        <span class="iconify" data-icon="iconoir:password-pass"></span>
+      </button>
+    </div>
+  </form>
+</mat-expansion-panel>

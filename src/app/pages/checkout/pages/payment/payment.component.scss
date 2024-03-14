@@ -1,0 +1,56 @@
+@use "breakpoints" as breakpoints;
+
+.payment-box {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(30, 206, 229, 0.2);
+  border-radius: 10px;
+  padding: 40px 100px;
+  .payment {
+    &__method {
+      border: 0.5px dashed rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      padding: 20px 40px;
+      p {
+        font-size: clamp(0.2rem, 3vw, 0.8rem);
+        line-height: 15px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      &_content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+    }
+    &__name {
+      font-size: clamp(0.6rem, 5vw, 1rem); //16px
+      line-height: 24px;
+      font-weight: 700;
+      color: #00000099;
+    }
+    .mat-expansion-panel-header.mat-expanded {
+      margin-bottom: 20px;
+    }
+    &__form {
+      width: 100%;
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
+@include breakpoints.media-breakpoint("lt-md") {
+  .payment-box {
+    padding: 22px;
+    .payment {
+      &__method {
+        padding: 20px 20px;
+      }
+      ::ng-deep .mat-expansion-panel-body {
+        padding: 0;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}

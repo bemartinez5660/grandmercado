@@ -1,0 +1,32 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center"
+  fxLayoutGap="50px"
+  fxLayoutGap.lt-sm="11px"
+  class="checkout-links"
+>
+  <span
+    class="checkout-links__item"
+    [ngClass]="{ 'active-route': currentUrl === '/checkout/receiver-form' }"
+  >
+    <span class="iconify" data-icon="uil:mailbox"></span>
+    {{ "shop.checkout.receiverNav" | translate }}</span
+  >
+  <span
+    class="checkout-links__item"
+    [ngClass]="{ 'active-route': currentUrl === '/checkout/order-details' }"
+  >
+    <span class="iconify" data-icon="uil:receipt-alt"></span>
+    {{ "shop.checkout.orderNav" | translate }}</span
+  >
+  <span
+    class="checkout-links__item"
+    [ngClass]="{ 'active-route': currentUrl.includes('/checkout/payment') }"
+  >
+    <span class="iconify" data-icon="fluent:payment-16-regular"></span>
+    {{ "shop.checkout.paymentNav" | translate }}</span
+  >
+</div>
+<section class="page-container">
+  <router-outlet></router-outlet>
+</section>

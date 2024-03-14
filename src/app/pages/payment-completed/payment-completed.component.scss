@@ -1,0 +1,11 @@
+.section {
+  .section-content {
+    max-width: 413px;
+    &__title {
+      margin-bottom: 10px;
+    }
+    &__desc {
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<mat-drawer-container hasBackdrop="true">
+  <mat-drawer #drawer mode="over">
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-icon-button (click)="sidenavService.close()">
+          <span
+            class="iconify"
+            data-icon="material-symbols:close-rounded"
+          ></span>
+        </button>
+      </div>
+      <div>
+        <ul>
+          <li
+            class="sidenav-menu-item"
+            [routerLink]="['/home']"
+            routerLinkActive="active-link"
+          >
+            {{ "nav.home" | translate }}
+          </li>
+          <li
+            class="sidenav-menu-item"
+            [routerLink]="['/products']"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ "shop.all.products" | translate }}
+          </li>
+          <mat-divider></mat-divider>
+          <ng-container *ngIf="{ authUser: user$ | async } as data">
+            <ng-container *ngIf="data.authUser; else noUser">
+              <li
+                class="sidenav-menu-item"
+                [routerLink]="['/profile/user']"
+                routerLinkActive="active-link"
+              >
+                {{ "nav.profile" | translate }}
+              </li>
+              <li
+                class="sidenav-menu-item"
+                [routerLink]="['/profile/my-orders']"
+                routerLinkActive="active-link"
+              >
+                {{ "profile.myOrders.title" | translate }}
+              </li>
+              <li class="sidenav-menu-item">
+                <span
+                  class="iconify"
+                  data-icon="prime:sign-in"
+                  style="rotate: 180deg"
+                ></span
+                >&nbsp;{{ "nav.logout" | translate }}
+              </li>
+            </ng-container>
+            <ng-template #noUser>
+              <li
+                class="sidenav-menu-item"
+                [routerLink]="['/auth/register']"
+                routerLinkActive="active-link"
+              >
+                {{ "auth.login.register" | translate }}
+              </li>
+              <li
+                class="sidenav-menu-item"
+                [routerLink]="['/auth/login']"
+                routerLinkActive="active-link"
+              >
+                <span class="iconify" data-icon="prime:sign-in"></span>&nbsp;{{
+                  "nav.login" | translate
+                }}
+              </li>
+            </ng-template>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-container
+      *ngIf="{ data: data$ | async, user: user$ | async } as asyncData"
+    >
+      <app-shop-navbar
+        [breadcrumb]="asyncData.data ? asyncData.data['breadcrumb'] : ''"
+        [user]="asyncData.user"
+      ></app-shop-navbar>
+    </ng-container>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-shop-footer></app-shop-footer>
+  </mat-drawer-content>
+</mat-drawer-container>

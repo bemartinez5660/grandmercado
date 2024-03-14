@@ -1,0 +1,26 @@
+.select {
+  background-color: white;
+  &__title {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  &__box {
+    background-color: transparent;
+    border: none;
+    color: #434343;
+    font-family: "Poppins";
+    font-size: 18px;
+    font-weight: 600;
+  }
+  select {
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 20px;
+    border-color: #444 #333 #333 #444 !important;
+    background: url(../../../assets/img/icons/chevron-down.svg) no-repeat 100%
+      5px;
+  }
+}

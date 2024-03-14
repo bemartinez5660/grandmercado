@@ -1,0 +1,24 @@
+<div class="slides" *ngIf="products?.length">
+  <div class="slides-header">
+    <h1 class="shop-section-title">{{ categoryName }}</h1>
+    <button class="btn-primary" *ngIf="departamentId" (click)="onSeeMore()">
+      {{ "seeMore" | translate }}
+    </button>
+  </div>
+  <div>
+    <swiper #swiper [config]="config" class="casillero-sides">
+      <ng-template swiperSlide *ngFor="let item of products">
+        <app-product-card
+          (select)="onSelect($event)"
+          [product]="item"
+        ></app-product-card>
+      </ng-template>
+    </swiper>
+    <button (click)="onPrev()" class="button-prev">
+      <img src="assets/img/icons/chevron-left.svg" />
+    </button>
+    <button (click)="onNext()" class="button-next">
+      <img src="assets/img/icons/chevron-right.svg" />
+    </button>
+  </div>
+</div>

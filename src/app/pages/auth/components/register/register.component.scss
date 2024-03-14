@@ -1,0 +1,37 @@
+@use "utilities";
+@use "breakpoints" as breakpoints;
+
+.register {
+  position: relative;
+  padding: 40px 0;
+  width: 500px;
+  &__solid-square {
+    width: 131px;
+    height: 131px;
+    left: -31px;
+    bottom: -38px;
+    @extend .solid-square;
+  }
+  &__dashed-square {
+    top: -9px;
+    right: -9px;
+    @extend .dashed-square;
+  }
+  &__form {
+    width: 80%;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+@include breakpoints.media-breakpoint("xs") {
+  .register {
+    padding: 40px 20px;
+    width: calc(100vw - 40px);
+
+    &__solid-square {
+      left: -10px;
+    }
+  }
+}

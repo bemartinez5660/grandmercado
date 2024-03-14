@@ -1,0 +1,134 @@
+@use "breakpoints" as breakpoints;
+@use "buttons";
+
+:host {
+  .mobile-province-select {
+    padding-top: 20px;
+    background-color: white;
+  }
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  header {
+    position: relative;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    height: 90px;
+    padding: 0 50px;
+    @include breakpoints.media-breakpoint("lt-md") {
+      height: 100px;
+      padding: 0 20px;
+    }
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    height: 70px;
+  }
+  .logo-small {
+    height: 50px;
+  }
+  .sidenav-menu-button {
+    color: #434343;
+    svg {
+      font-size: 30px;
+    }
+  }
+
+  .btn-collection-menu {
+    padding-inline: 20px;
+    display: flex;
+    align-items: center;
+    border-inline: 0.5px solid #434343;
+    color: #434343;
+    font-family: "Poppins";
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .collections {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    background-color: hsl(0deg 0% 100% / 93%);
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .display-menu {
+    display: block;
+  }
+  .sticky-nav {
+    height: 80px;
+    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+  }
+}
+
+@include breakpoints.media-breakpoint("lt-lg") {
+  .search-box {
+    display: none !important;
+  }
+}
+@include breakpoints.media-breakpoint("gt-md") {
+  .mobile-search-box {
+    display: none !important;
+  }
+}
+
+.mobile-search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #d9d9d966;
+  transition: all 0.2s ease-in-out;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 5px;
+  width: 350px;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #d9d9d966;
+  transition: all 0.2s ease-in-out;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 5px;
+  margin-right: 10px;
+  width: 350px;
+}
+app-search-input {
+  width: 100%;
+}
+.search-button {
+  transition: all 0.2s ease-in-out;
+}
+:host ::ng-deep .search-box .search-bar,
+:host ::ng-deep .mobile-search-box .search-bar {
+  border: none;
+  color: #121212;
+  transition: all 200ms ease-in-out;
+  width: 100%;
+  padding: 5px 10px;
+}
+.search-box .search-bar::placeholder,
+.mobile-search-box .search-bar::placeholder {
+  font-size: 16px;
+}

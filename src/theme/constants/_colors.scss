@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #f29202;
+  --primary-color-darker: hsl(from var(--primary-color) h s calc(l - 5%));
+  --primary-color-darkest: hsl(from var(--primary-color) h s calc(l - 10%));
+}
+
+$primary-color: var(--primary-color);
+$secondary-color: #0d0e35;
+
+$typo-primary-color: #ffffff;
+
+$typo-black: black;
+
+$shadow-color: rgba(30, 206, 229, 0.2);
+$shadow-error-color: rgba(229, 30, 30, 0.2);
+
+$warn-color: #dc6666;

@@ -1,0 +1,9 @@
+<div class="banner" *ngIf="image_small || image_medium || image_large">
+  <div class="banner__image">
+    <picture>
+      <source [srcset]="image_large" media="(min-width: 75em)" />
+      <source [srcset]="image_medium" media="(min-width: 40em)" />
+      <img [src]="image_small" loading="lazy" decoding="async" />
+    </picture>
+  </div>
+</div>

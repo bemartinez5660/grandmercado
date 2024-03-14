@@ -1,0 +1,26 @@
+version: 0.2
+
+env:
+  variables:
+    CACHE_CONTROL: "86400"
+    BUILD_FOLDER: "dist"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install -g @angular/cli
+      - sudo amazon-linux-extras install epel -y
+      - sudo yum install -y chromium
+  build:
+    commands:
+      - echo Build application for agency $BUILD_CONFIG
+      - ng build -c $BUILD_CONFIG
+      - echo Build Static Site with Scully
+      - npx scully --np
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "dist/static"

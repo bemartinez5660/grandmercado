@@ -1,0 +1,14 @@
+<div
+  fxLayout="column"
+  fxLayoutGap="20px"
+  class="container"
+  fxLayoutAlign="center center"
+>
+  <p class="description">{{ "auth.verifyEmail" | translate }}</p>
+
+  <span class="normal">{{ "auth.whenVerifiedLogin" | translate }}</span>
+
+  <button class="btn-primary" [routerLink]="'/auth/login'">
+    {{ "auth.login.title" | translate }}
+  </button>
+</div>

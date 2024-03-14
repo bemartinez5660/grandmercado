@@ -1,0 +1,45 @@
+<nav aria-label="pagination">
+  <ul>
+    <li>
+      <button
+        class="button-navigation"
+        aria-label="Go To Previous Page"
+        [attr.aria-disabled]="current === 1"
+        [disabled]="current === 1"
+        (click)="onPreviousPage()"
+      >
+        <img src="assets/img/icons/chevron-left.svg" />
+      </button>
+    </li>
+    <li *ngFor="let page of pages">
+      <ng-container *ngIf="page != -1; else morePages">
+        <a
+          [attr.aria-current]="page === current ? 'page' : null"
+          [attr.aria-label]="
+            page === current
+              ? 'Current Page, Page ' + page
+              : 'Go to Page ' + page
+          "
+          [class.current]="page === current"
+          tabindex="0"
+          (click)="onGoTo(page)"
+          (keyup.enter)="onGoTo(page)"
+        >
+          {{ page }}</a
+        >
+      </ng-container>
+      <ng-template #morePages> <span>...</span> </ng-template>
+    </li>
+    <li>
+      <button
+        class="button-navigation"
+        aria-label="Go To Next Page"
+        [attr.aria-disabled]="current === page_total"
+        [disabled]="current === page_total"
+        (click)="onNextPage()"
+      >
+        <img src="assets/img/icons/chevron-right.svg" />
+      </button>
+    </li>
+  </ul>
+</nav>

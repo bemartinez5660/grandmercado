@@ -1,0 +1,57 @@
+<div class="page-box">
+  <h1 class="page-title">Mis Datos</h1>
+  <form
+    [formGroup]="userDataForm"
+    (ngSubmit)="onSubmit()"
+    class="user-form"
+    fxLayout="column"
+    [connectForm]="currentUser$ | async"
+  >
+    <div fxLayout="column" fxLayoutGap="10px" class="w-100">
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">Nombre</mat-label>
+        <input matInput type="text" id="name" formControlName="name" required
+      /></mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">Teléfono</mat-label>
+        <input
+          matInput
+          type="text"
+          id="phone"
+          formControlName="phone"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label class="text-up">Correo eletrónico</mat-label>
+        <input
+          matInput
+          type="text"
+          id="email"
+          formControlName="email"
+          required
+          readonly
+        />
+      </mat-form-field>
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="end"
+      fxLayoutGap="20px"
+      class="user-form__actions"
+    >
+      <button
+        class="btn-secondary"
+        type="button"
+        [routerLink]="['/auth/change-password']"
+      >
+        <span>Cambiar contraseña</span
+        ><span class="iconify" data-icon="uil:lock-alt"></span>
+      </button>
+      <button class="btn-secondary" type="submit">
+        <span>Editar datos</span
+        ><span class="iconify" data-icon="uil:edit"></span>
+      </button>
+    </div>
+  </form>
+</div>

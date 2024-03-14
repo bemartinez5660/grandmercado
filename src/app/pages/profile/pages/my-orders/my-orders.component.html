@@ -1,0 +1,79 @@
+<div class="page-box" fxLayout="column" fxLayoutAlign="center center">
+  <h1 class="page-title">{{ "profile.myOrders.title" | translate }}</h1>
+  <ng-container *ngIf="order$ | async as orderList">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th scope="col">{{ "profile.myOrders.orderCode" | translate }}</th>
+          <th scope="col">{{ "profile.myOrders.payDate" | translate }}</th>
+          <th scope="col">{{ "profile.myOrders.receiver" | translate }}</th>
+          <th scope="col">{{ "shop.order.status" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let order of orderList.results">
+          <tr
+            (click)="order.isExpanded = !order.isExpanded"
+            class="orders-table__row"
+          >
+            <th scope="row">
+              {{ order.order_code }}
+            </th>
+            <td>{{ order.created_at | date }}</td>
+            <td>{{ order.receiver_name }}</td>
+            <td
+              class="order-status"
+              [innerHTML]="allStatus[order.status] | safeHtml"
+            ></td>
+          </tr>
+          <tr *ngIf="order.isExpanded" @detailExpand>
+            <td colspan="4" class="orders-table__expanded-row">
+              <app-order-table [orders]="order.orders"></app-order-table>
+              <div
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                fxLayoutGap="25px"
+                fxLayoutGap.lt-sm="10px"
+                class="billings"
+              >
+                <span>Total: {{ order.sell_price | currency }}</span>
+                <span class="billings__distribution">
+                  <span
+                    class="iconify"
+                    data-icon="iconoir:delivery-truck"
+                  ></span>
+                  <span>Envio: {{ order.sell_distribution | currency }}</span>
+                </span>
+                <span
+                  ><strong>Subtotal:</strong>
+                  {{ order.sell_total | currency }}</span
+                >
+                <button
+                  class="btn-primary"
+                  [routerLink]="['../../checkout/payment', order.order_code]"
+                  *ngIf="order.status == 'waiting_for_payment'"
+                >
+                  <span>
+                    {{ "shop.cart.actions.pay" | translate }}
+                  </span>
+                  <span
+                    class="iconify"
+                    data-icon="fluent:payment-16-regular"
+                  ></span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <app-pagination
+      *ngIf="orderList.pages > 1"
+      [page_total]="orderList.pages"
+      [current]="current_page"
+      (onPage)="onGoTo($event)"
+      (onNext)="onNext($event)"
+      (onPrev)="onPrev($event)"
+    ></app-pagination>
+  </ng-container>
+</div>

@@ -1,0 +1,43 @@
+@use "utilities" as utils;
+@use "breakpoints" as breakpoints;
+
+.changePass {
+  position: relative;
+  padding: 40px 20px;
+  width: 500px;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  &__info {
+    text-align: center;
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__form {
+    width: 300px;
+  }
+  &__solid-square {
+    width: 131px;
+    height: 131px;
+    left: -31px;
+    bottom: -38px;
+    @extend .solid-square;
+  }
+  &__dashed-square {
+    top: -9px;
+    right: -9px;
+    @extend .dashed-square;
+  }
+}
+
+@include breakpoints.media-breakpoint("lt-sm") {
+  .changePass {
+    width: 100%;
+  }
+}

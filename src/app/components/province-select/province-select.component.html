@@ -1,0 +1,24 @@
+<div
+  fxLayout="row"
+  fxLayoutGap="5px"
+  fxLayoutAlign="center center"
+  class="select"
+  *ngIf="selectedProvince$ | async as province"
+>
+  <span class="select__title">{{ "shop.navbar.select" | translate }}</span>
+
+  <select
+    class="select__box"
+    name="valueCheck"
+    (change)="valueChange($event)"
+    *ngIf="provinces$ | async as provinces"
+  >
+    <option
+      *ngFor="let item of provinces; trackBy: tracByProvinceId"
+      [value]="item.id"
+      [selected]="item === province"
+    >
+      {{ item.name }}
+    </option>
+  </select>
+</div>

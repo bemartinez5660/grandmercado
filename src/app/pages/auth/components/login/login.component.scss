@@ -1,0 +1,67 @@
+@use "utilities";
+@use "breakpoints" as breakpoints;
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-image {
+  position: relative;
+  &__solid-square {
+    width: 131px;
+    height: 131px;
+    left: -31px;
+    bottom: -38px;
+    @extend .solid-square;
+  }
+  &__dashed-square {
+    top: -10px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+    @extend .dashed-square;
+  }
+}
+
+.login {
+  padding: 40px 0;
+  width: 500px;
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  #keepLogin {
+    margin: 10px 0;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+  }
+  &__forgot {
+    color: #02427d;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+@include breakpoints.media-breakpoint("xs") {
+  .login {
+    padding: 40px 20px;
+    width: calc(100vw - 40px);
+
+    &__solid-square {
+      left: -10px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use "colors" as colors;
+@use "buttons";
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  margin: 0 4px;
+}
+
+a {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+  width: 25px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+a.current,
+a:not(.more):hover {
+  background-color: colors.$primary-color;
+  color: #fff;
+  font-weight: 700;
+  height: 32px;
+  border-radius: 16.5px;
+}
+
+a.more:hover,
+a.current {
+  cursor: default;
+  text-decoration: none;
+}

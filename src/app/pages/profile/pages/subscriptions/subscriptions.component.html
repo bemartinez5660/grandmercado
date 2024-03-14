@@ -1,0 +1,37 @@
+<div class="page-box" fxLayout="column" fxLayoutAlign="center center">
+  <h1 class="page-title">{{ "profile.subscriptions.title" | translate }}</h1>
+  <div class="subs-options">
+    <form
+      [formGroup]="subsForm"
+      (ngSubmit)="onSubmit()"
+      fxLayout="column"
+      fxLayoutAlign="center start"
+    >
+      <div>
+        <mat-checkbox formControlName="newsletters"
+          >{{ "profile.subscriptions.newsLetters" | translate }}
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox formControlName="promotions"
+          >{{ "profile.subscriptions.promotions" | translate }}
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox formControlName="reminders"
+          >{{ "profile.subscriptions.reminders" | translate }}
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox formControlName="updates"
+          >{{ "profile.subscriptions.updates" | translate }}
+        </mat-checkbox>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end" class="w-100">
+        <button type="submit" class="btn-primary">
+          {{ "save" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

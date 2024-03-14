@@ -1,0 +1,59 @@
+<ng-container *ngIf="departmentData">
+  <span class="title">{{ "shop.departments" | translate }}</span>
+  <span
+    class="title"
+    *ngIf="
+      getDepartmentData(departmentData.selected_departament)
+        | async as department
+    "
+  >
+    / {{ department.name }}</span
+  >
+  <span
+    class="title"
+    *ngIf="
+      getCategoryData(departmentData.selected_category) | async as category
+    "
+  >
+    / {{ category.name }}</span
+  >
+  <swiper
+    #swiper
+    [config]="swiperConfig"
+    (swiper)="onSwiper(departmentData.selected_departament)"
+  >
+    <ng-template
+      swiperSlide
+      *ngFor="let item of departmentData.departments; let i = index"
+    >
+      <div
+        class="department"
+        (click)="onSelectDepartment(i)"
+        [ngClass]="{
+          active:
+            item.selected || item.slug == departmentData.selected_departament
+        }"
+      >
+        <div class="department__icon">
+          <img
+            class="department__icon__image"
+            [src]="item?.icon"
+            onerror="this.src='assets/img/shop/default-department-icon.png'"
+            [alt]="item.name"
+          />
+        </div>
+        <span class="department__name">{{ item.name }}</span>
+      </div>
+    </ng-template>
+  </swiper>
+  <div
+    class="categories"
+    *ngIf="selectedDepartment?.categories?.length"
+    @showCategories
+  >
+    <app-categories-slides
+      [category]="selectedCategory"
+      [department]="selectedDepartment"
+    ></app-categories-slides>
+  </div>
+</ng-container>

@@ -1,0 +1,75 @@
+<div class="receiver-box">
+  <h1 class="page-title">
+    {{ title | translate }}
+  </h1>
+  <ng-container *ngIf="!needAddNewReceiver; else addReceiver">
+    <div>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button
+          class="btn-secondary add-button"
+          (click)="onAddReceiverOrSelectReceiver()"
+        >
+          <span
+            class="iconify btn-primary__ele"
+            data-icon="akar-icons:person-add"
+          ></span>
+        </button>
+      </div>
+
+      <ng-container *ngIf="filteredReceivers$ | async as receivers">
+        <div *ngIf="!receivers.length" class="no-receiver">
+          <h3>{{ "shop.checkout.receiver.mostAddReceiver" | translate }}</h3>
+        </div>
+        <table>
+          <tbody>
+            <ng-container *ngFor="let item of receivers">
+              <tr (click)="onSelectAsDefault(item)">
+                <td>
+                  <input
+                    *ngIf="selectedReceiver$ | async as selected"
+                    type="radio"
+                    id="default_receiver"
+                    [value]="item.id"
+                    [checked]="item.id == selected.id"
+                  />
+                </td>
+                <td>
+                  {{ item.name }}
+                </td>
+                <td>
+                  {{ item.address }}
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+
+        <app-receiver-details
+          [receiver]="selectedReceiver"
+        ></app-receiver-details>
+        <div fxLayout="row" fxLayoutAlign="end" *ngIf="receivers.length">
+          <button class="btn-secondary" (click)="onOrderDetails()">
+            <span>{{ "shop.checkout.orderNav" | translate }}</span>
+            <span class="iconify" data-icon="uil:receipt-alt"></span>
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #addReceiver>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="start" style="padding-bottom: 20px">
+        <button class="btn-secondary" (click)="onAddReceiverOrSelectReceiver()">
+          <span
+            class="iconify"
+            data-icon="material-symbols:arrow-back-rounded"
+          ></span>
+          <span>{{ "shop.checkout.receiver.back" | translate }}</span>
+        </button>
+      </div>
+      <app-receiver-form
+        (receiverAdded)="onReceiverAdded($event)"
+      ></app-receiver-form>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,32 @@
+@use "colors" as colors;
+
+.orders-table {
+  tbody th {
+    color: black;
+  }
+  &__row {
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+      background: rgb(227 224 224 / 39%);
+    }
+  }
+  &__expanded-row {
+    padding-left: 20px;
+  }
+  .billings {
+    margin-bottom: 30px;
+    span {
+      font-size: clamp(0.2rem, 3vw, 0.938rem);
+    }
+    &__distribution {
+      display: flex;
+      align-items: center;
+      svg {
+        color: colors.$primary_color;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

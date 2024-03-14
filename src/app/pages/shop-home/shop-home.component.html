@@ -1,0 +1,53 @@
+<div id="shop" *ngIf="homePage$ | async as homePage">
+  <swiper #swiper [config]="config" class="casillero-sides">
+    <ng-template swiperSlide *ngFor="let banner of homePage.banners">
+      <a [href]="banner?.link">
+        <div class="head-banner">
+          <!-- <div class="head-banner__content">
+          <h1 class="head-banner__title heading-shop">
+            {{ banner.title }}
+          </h1>
+          <p class="head-banner__subtitle description">
+            {{ banner.subtitle }}
+          </p>
+          <a *ngIf="banner.link" [href]="banner.link" class="banner-link">
+            <button class="btn-primary">
+              {{ banner.action_button }}
+            </button>
+          </a>
+        </div> -->
+          <picture>
+            <source [srcset]="banner.image_large" media="(min-width: 75em)" />
+            <source [srcset]="banner.image_medium" media="(min-width: 40em)" />
+            <img
+              [src]="banner.image_small"
+              loading="lazy"
+              decoding="async"
+              [routerLink]="banner?.link"
+            />
+          </picture>
+        </div>
+      </a>
+    </ng-template>
+  </swiper>
+
+  <div class="home-department-slides">
+    <app-department-slides [canNavigate]="true"></app-department-slides>
+  </div>
+
+  <ng-container *ngFor="let item of homePage.categories; index as i">
+    <app-banner-section
+      *ngIf="i !== 0"
+      [image_large]="item.image_large"
+      [image_medium]="item.image_medium"
+      [image_small]="item.image_small"
+    ></app-banner-section>
+
+    <app-products-slides
+      [departamentId]="item.category.departament"
+      [category]="item.category"
+      [categoryName]="item.title"
+      [products]="item.category.products"
+    ></app-products-slides>
+  </ng-container>
+</div>
